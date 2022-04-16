@@ -1,3 +1,4 @@
+local MODROOT = MODROOT
 GLOBAL.setfenv(1, GLOBAL)
 
 local strings = {}
