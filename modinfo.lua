@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "0.1.1"
+version = "1.1"
 -- version_title = zh_en("龙蝇的回归，以及更多的皮肤！", "The Return of Dragonfly, and more skins!")
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
@@ -21,7 +21,9 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 初次更新，
+- 修复一个环境变量问题。
+
+- 初次更新。
 - 龙蝇加入火山。
 - 修改了一部分文本。
 
@@ -30,6 +32,8 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
+- Fix an env bug.
+
 - First init.
 - Dragonfly now spawns in the volcano.
 
