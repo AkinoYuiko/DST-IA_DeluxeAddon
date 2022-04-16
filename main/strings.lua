@@ -1,7 +1,13 @@
 local MODROOT = MODROOT
 GLOBAL.setfenv(1, GLOBAL)
 
-local strings = {}
+local strings =
+{
+    SKIN_NAMES =
+    {
+        cutlass_malbatross = STRINGS.NAMES.MALBATROSS_BEAK
+    }
+}
 
 GlassicAPI.MergeStringsToGLOBAL(strings)
 GlassicAPI.MergeTranslationFromPO(MODROOT.."languages")

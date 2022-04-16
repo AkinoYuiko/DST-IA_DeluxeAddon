@@ -2,9 +2,12 @@ local mainfiles =
 {
     "assets",
     "prefabskin",
-    "strings",
+    -- "strings",
 
-    "dragoonfly"
+    "recipes",
+
+    "dragoonfly",
+    "octopusking",
 }
 
 for _, file in ipairs(mainfiles) do

@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.1"
+version = "1.2"
 -- version_title = zh_en("龙蝇的回归，以及更多的皮肤！", "The Return of Dragonfly, and more skins!")
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
@@ -21,21 +21,18 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 修复一个环境变量问题。
+- 在月圆时可以用星杖跟章鱼王交换月杖。
+- 剑鱼剑现在拥有“邪天翁喙”的皮肤（部分细节尚不完善）。
+- 调整了龙蝇的掉落物表。
 
-- 初次更新。
-- 龙蝇加入火山。
-- 修改了一部分文本。
-
-"让IA再次XXL。"]],
+"让你的岛屿冒险更加丰富！"]],
     -- en
 "[Version: "..version..[[]
 
 Changelog:
-- Fix an env bug.
-
-- First init.
-- Dragonfly now spawns in the volcano.
+- Star Staff become tradable with Octopus King during full moon.
+- Cutlass has a new skin.
+- Tweak loot table of Dragonfly.
 
 "Make IA great L again."]]
 )

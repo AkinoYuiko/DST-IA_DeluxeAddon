@@ -1,12 +1,23 @@
-AddPrefabPostInit("dragonfly", function(inst)
-    if inst.components.lootdropper then
-        inst.components.lootdropper:AddChanceLoot("obsidian", 1)
-        inst.components.lootdropper:AddChanceLoot("obsidian", 1)
-        inst.components.lootdropper:AddChanceLoot("obsidian", 1)
-        inst.components.lootdropper:AddChanceLoot("obsidian", 0.50)
-        inst.components.lootdropper:AddChanceLoot("obsidian", 0.50)
-        inst.components.lootdropper:AddChanceLoot("obsidian", 0.33)
-        inst.components.lootdropper:AddChanceLoot("obsidian", 0.33)
-        inst.components.lootdropper:AddChanceLoot("obsidian", 0.25)
+local AddSimPostInit = AddSimPostInit
+GLOBAL.setfenv(1, GLOBAL)
+
+AddSimPostInit(function()
+    local loots = LootTables["dragonfly"]
+    if loots then
+        for _, v in ipairs(loots) do
+            if v[1] == "lavae_egg" then
+                v[1] = "dragoonheart"
+                v[2] = 1
+                break
+            end
+        end
+        table.insert(loots, {"obsidian", 1})
+        table.insert(loots, {"obsidian", 1})
+        table.insert(loots, {"obsidian", 1})
+        table.insert(loots, {"obsidian", 0.50})
+        table.insert(loots, {"obsidian", 0.50})
+        table.insert(loots, {"obsidian", 0.33})
+        table.insert(loots, {"obsidian", 0.33})
+        table.insert(loots, {"obsidian", 0.25})
     end
 end)
