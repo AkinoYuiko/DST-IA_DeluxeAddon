@@ -2,7 +2,7 @@ local mainfiles =
 {
     "assets",
     "prefabskin",
-    -- "strings",
+    "strings",
 
     "recipes",
 
