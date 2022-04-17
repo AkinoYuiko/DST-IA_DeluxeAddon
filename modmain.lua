@@ -5,6 +5,7 @@ local mainfiles =
     "strings",
 
     "recipes",
+    "spices",
 
     "dragoonfly",
     "octopusking",

@@ -1,6 +1,7 @@
 Assets = {}
 PrefabFiles = {
-    "ia_skinprefabs"
+    "ia_skinprefabs",
+    "ia_spices",
 }
 
-GlassicAPI.RegisterItemAtlas("cutlass_malbatross", Assets)
+GlassicAPI.RegisterItemAtlas("iad_inventoryimages", Assets)

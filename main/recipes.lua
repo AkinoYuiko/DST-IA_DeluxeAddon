@@ -1,6 +1,14 @@
+local AddRecipe = GlassicAPI.AddRecipe
+local SortAfter = GlassicAPI.SortAfter
+local GetModConfigData = GetModConfigData
+GLOBAL.setfenv(1, GLOBAL)
+
+AddRecipe("spice_jellyfish", {Ingredient("jellyfish_dead", 3)}, TECH.FOODPROCESSING_ONE, {nounlock = true, numtogive = 2, builder_tag = "professionalchef"})
+SortAfter("spice_jellyfish", "spice_salt", "CRAFTING_STATION")
+
 if not GetModConfigData("eyebrella_second_recipe") then return end
 
-GLOBAL.AddRecipePostInit("eyebrellahat", function(recipe)
+AddRecipePostInit("eyebrellahat", function(recipe)
     local ingredient = recipe:FindAndConvertIngredient("deerclops_eyeball")
     if ingredient then
         ingredient:AddDictionaryPrefab("tigereye")

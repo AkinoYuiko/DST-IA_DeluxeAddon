@@ -4,15 +4,36 @@ GLOBAL.setfenv(1, GLOBAL)
 
 local strings =
 {
+    NAMES =
+    {
+        SPICE_JELLYFISH = "Zappy Powder",
+        SPICE_JELLYFISH_FOOD = "Zappy {food}",
+    },
+    RECIPE_DESC =
+    {
+        SPICE_JELLYFISH = "The feeling of volt jelly.",
+    },
+    CHARACTERS =
+    {
+        GENERIC =
+        {
+            DESCRIBE =
+            {
+                SPICE_JELLYFISH = "Zap left.",
+            }
+        }
+    },
     SKIN_NAMES =
     {
-        cutlass_malbatross = STRINGS.NAMES.MALBATROSS_BEAK
+        cutlass_malbatross = STRINGS.NAMES.MALBATROSS_BEAK,
     }
 }
 
 GlassicAPI.MergeStringsToGLOBAL(strings)
+GlassicAPI.MergeTranslationFromPO(MODROOT.."languages")
+
 if GetModConfigData("e_yu") then
-    GlassicAPI.MergeTranslationFromPO(MODROOT.."languages")
+    GlassicAPI.MergeTranslationFromPO(MODROOT.."languages/e_yu")
 end
 
 UpdateIADEStrings = function()

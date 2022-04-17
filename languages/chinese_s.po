@@ -14,22 +14,22 @@ msgstr ""
 "POT Version: 2.0\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#. STRINGS.NAMES.BOAT_ENCRUSTED
-msgctxt "STRINGS.NAMES.BOAT_ENCRUSTED"
-msgid ""
-msgstr "王八船"
+#. STRINGS.NAMES.SPICE_JELLYFISH
+msgctxt "STRINGS.NAMES.SPICE_JELLYFISH"
+msgid "Zappy Powder"
+msgstr "电水母粉"
 
-#. STRINGS.NAMES.SURFNTURF
-msgctxt "STRINGS.NAMES.SURFNTURF"
-msgid ""
-msgstr "海鲜牛批"
+#. STRINGS.NAMES.SPICE_JELLYFISH_FOOD
+msgctxt "STRINGS.NAMES.SPICE_JELLYFISH_FOOD"
+msgid "Zappy {food}"
+msgstr "电{food}"
 
-#. STRINGS.NAMES.COCONUT_HALVED
-msgctxt "STRINGS.NAMES.COCONUT_HALVED"
-msgid ""
-msgstr "分成两半的鸭子"
+#. STRINGS.RECIPE_DESC.SPICE_JELLYFISH
+msgctxt "STRINGS.RECIPE_DESC.SPICE_JELLYFISH"
+msgid "The feeling of volt jelly."
+msgstr "酥酥麻麻的感觉。"
 
-#. STRINGS.NAMES.COCONADE
-msgctxt "STRINGS.NAMES.COCONADE"
-msgid ""
-msgstr "鸭蛋"
+#. STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH"
+msgid "Zap left."
+msgstr "余电未消。"
