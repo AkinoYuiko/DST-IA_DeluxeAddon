@@ -1,4 +1,5 @@
 local MODROOT = MODROOT
+local GetModConfigData = GetModConfigData
 GLOBAL.setfenv(1, GLOBAL)
 
 local strings =
@@ -10,7 +11,9 @@ local strings =
 }
 
 GlassicAPI.MergeStringsToGLOBAL(strings)
-GlassicAPI.MergeTranslationFromPO(MODROOT.."languages")
+if GetModConfigData("e_yu") then
+    GlassicAPI.MergeTranslationFromPO(MODROOT.."languages")
+end
 
 UpdateIADEStrings = function()
     local file, errormsg = io.open(MODROOT .. "languages/strings.pot", "w")

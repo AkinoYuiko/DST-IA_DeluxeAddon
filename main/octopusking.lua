@@ -1,3 +1,5 @@
+if not GetModConfigData("starstuff_octopusking") then return end
+
 local AddPrefabPostInit = AddPrefabPostInit
 GLOBAL.setfenv(1, GLOBAL)
 

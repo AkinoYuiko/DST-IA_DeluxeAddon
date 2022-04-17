@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.2.1"
+version = "1.2.2"
 -- version_title = zh_en("龙蝇的回归，以及更多的皮肤！", "The Return of Dragonfly, and more skins!")
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
@@ -21,8 +21,9 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 修复一处引用错误。
+- 新增选项设置。
 
+- 修复一处引用错误。
 - 在月圆时可以用星杖跟章鱼王交换月杖。
 - 剑鱼剑现在拥有“邪天翁喙”的皮肤（部分细节尚不完善）。
 - 调整了龙蝇的掉落物表。
@@ -32,8 +33,9 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
-- Fix a load-file issue.
+- Add mod config.
 
+- Fix a load-file issue.
 - Star Staff become tradable with Octopus King during full moon.
 - Cutlass has a new skin.
 - Tweak loot table of Dragonfly.
@@ -73,4 +75,53 @@ mod_dependencies = {
         ["IslandAdventures"] = false,
         ["Island Adventures - GitLab Ver."] = true
     },
+}
+
+
+local function AddTitle(title, hover)
+    return {
+        name = title,
+        hover = hover,
+        options = {{description = "", data = false}},
+        default = false
+    }
+end
+
+local boolean = {
+    {description = zh_en("启用", "Yes"), data = true},
+    {description = zh_en("禁用", "No"),  data = false}
+}
+
+configuration_options = {
+    AddTitle(zh_en("- 世界相关 -","- The World -")),
+    {
+        name = "dragoonfly",
+        label = zh_en("龙蝇震撼回归火山", "Dragonfly"),
+        hover = zh_en("龙蝇会刷新在火山区域", "Dragonfly spawns in the Volcano"),
+        options = boolean,
+        default = true
+    },
+    {
+        name = "starstuff_octopusking",
+        label = zh_en("用星杖交易换取月杖", "Star Stuff Trading"),
+        hover = zh_en("月圆时可以与章鱼王交易换取", "Trade with Octopus King, only available during full moon"),
+        options = boolean,
+        default = true
+    },
+    AddTitle(zh_en("- 配方相关 -","- The Crafting -")),
+    {
+        name = "eyebrella_second_recipe",
+        label = zh_en("虎鲨眼作为眼球伞的第二配方", "Tiger Eye as Eyebrella's ingredient"),
+        -- hover = zh_en("启用一些奇怪的翻译", "Enable some strange zh translations"),
+        options = boolean,
+        default = true
+    },
+    AddTitle(zh_en("- 语言相关 -","- The Translator -")),
+    {
+        name = "e_yu",
+        label = zh_en("使用鹅语","Enable 'e_yu'"),
+        hover = zh_en("启用一些奇怪的翻译", "Enable some strange zh translations"),
+        options = boolean,
+        default = false
+    }
 }
