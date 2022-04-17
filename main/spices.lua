@@ -1,4 +1,4 @@
-local AddIaCookerRecipe = AddCookerRecipe
+local env = env
 GLOBAL.setfenv(1, GLOBAL)
 
 local function oneaten_jellyfish(inst, eater)
@@ -40,7 +40,7 @@ local ia_spiced = {}
 for name, recipe in pairs(spicedfoods) do
     if IA_SPICES[recipe.spice] then
         if ia_spiced_foods[name] then
-            AddIaCookerRecipe("portablespicer", recipe) -- SB
+            env.AddCookerRecipe("portablespicer", recipe) -- SB
         else
             AddCookerRecipe("portablespicer", recipe)
         end
