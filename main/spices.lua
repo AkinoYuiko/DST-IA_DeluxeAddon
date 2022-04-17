@@ -1,4 +1,4 @@
-local AddCookerRecipe = AddCookerRecipe
+local AddIaCookerRecipe = AddCookerRecipe
 GLOBAL.setfenv(1, GLOBAL)
 
 local function oneaten_jellyfish(inst, eater)
@@ -12,15 +12,14 @@ IA_SPICES = {
     }
 }
 
-local ia_preparedfoods = shallowcopy(IA_PREPAREDFOODS)
 local ia_foods = {}
-local ip_spiced_foods = {}
-for name, recipe in pairs(ia_preparedfoods) do
+local ia_spiced_foods = {}
+for name, recipe in pairs(IA_PREPAREDFOODS) do
     if recipe.spice == nil then
         ia_foods[name] = recipe
         for spice_name in pairs(IA_SPICES) do
             local spiced_food = name .. "_" .. string.lower(spice_name)
-            ip_spiced_foods[spiced_food] = true
+            ia_spiced_foods[spiced_food] = true
         end
     end
 end
@@ -40,14 +39,16 @@ GenerateSpicedFoods(ia_foods)
 local ia_spiced = {}
 for name, recipe in pairs(spicedfoods) do
     if IA_SPICES[recipe.spice] then
-        AddCookerRecipe("portablespicer", recipe)
-        if ip_spiced_foods[name] then
+        if ia_spiced_foods[name] then
+            AddIaCookerRecipe("portablespicer", recipe) -- SB
+        else
+            AddCookerRecipe("portablespicer", recipe)
+        end
+        if ia_spiced_foods[name] then
             ia_spiced[name] = recipe
         end
     end
 end
-
-IA_PREPAREDFOODS = MergeMaps(ia_preparedfoods, ia_spiced)
 
 ------------------------------------------------
 
