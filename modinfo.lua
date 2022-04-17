@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.2.2"
+version = "1.2.3"
 -- version_title = zh_en("龙蝇的回归，以及更多的皮肤！", "The Return of Dragonfly, and more skins!")
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
@@ -21,8 +21,9 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 新增选项设置。
+- 完善剑鱼剑的水面动画。
 
+- 新增选项设置。
 - 修复一处引用错误。
 - 在月圆时可以用星杖跟章鱼王交换月杖。
 - 剑鱼剑现在拥有“邪天翁喙”的皮肤（部分细节尚不完善）。
@@ -33,8 +34,9 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
-- Add mod config.
+- Update floating anim for Cutlass' new skin.
 
+- Add mod config.
 - Fix a load-file issue.
 - Star Staff become tradable with Octopus King during full moon.
 - Cutlass has a new skin.
