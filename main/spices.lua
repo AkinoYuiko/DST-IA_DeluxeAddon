@@ -50,6 +50,8 @@ for name, recipe in pairs(spicedfoods) do
     end
 end
 
+IA_PREPAREDFOODS = MergeMaps(IA_PREPAREDFOODS, ia_spiced)
+
 ------------------------------------------------
 
 local anim_state_override_symbol = AnimState.OverrideSymbol

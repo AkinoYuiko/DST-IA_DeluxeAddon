@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.3.1"
+version = "1.3.2"
 -- version_title = zh_en("龙蝇的回归，以及更多的皮肤！", "The Return of Dragonfly, and more skins!")
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
@@ -21,8 +21,9 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 修复料理食物的一个动画问题。
+- 修复电咖啡不加速的问题。
 
+- 修复料理食物的一个动画问题。
 - 新道具：电水母粉（大厨沃利的料理站）。
 - 合并物品栏道具为一个文件。
 - 更新了部分文本。
@@ -32,8 +33,9 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
-- Fix an anim issue about food plates.
+- Fix issue that zappy coffee won't apply speed boost.
 
+- Fix an anim issue about food plates.
 - Add Zappy Powder exclusive to Warly.
 - Merge inventory images to one file.
 - Update translations.
