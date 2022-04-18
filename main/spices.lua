@@ -12,18 +12,6 @@ IA_SPICES = {
     }
 }
 
-local ia_foods = {}
-local ia_spiced_foods = {}
-for name, recipe in pairs(IA_PREPAREDFOODS) do
-    if recipe.spice == nil then
-        ia_foods[name] = recipe
-        for spice_name in pairs(IA_SPICES) do
-            local spiced_food = name .. "_" .. string.lower(spice_name)
-            ia_spiced_foods[spiced_food] = true
-        end
-    end
-end
-
 require("cooking" )
 local spicedfoods = require("spicedfoods")
 local UpvalueUtil = require("upvalueutil")
@@ -34,23 +22,31 @@ shallowcopy(IA_SPICES, SPICES)
 
 GenerateSpicedFoods(require("preparedfoods"))
 GenerateSpicedFoods(require("preparedfoods_warly"))
-GenerateSpicedFoods(ia_foods)
 
-local ia_spiced = {}
 for name, recipe in pairs(spicedfoods) do
     if IA_SPICES[recipe.spice] then
-        if ia_spiced_foods[name] then
-            env.AddCookerRecipe("portablespicer", recipe) -- SB
-        else
-            AddCookerRecipe("portablespicer", recipe)
-        end
-        if ia_spiced_foods[name] then
-            ia_spiced[name] = recipe
-        end
+        AddCookerRecipe("portablespicer", recipe)
     end
 end
 
-IA_PREPAREDFOODS = MergeMaps(IA_PREPAREDFOODS, ia_spiced)
+local _spicedfoods = shallowcopy(spicedfoods)
+local ia_foods = {}
+for name, recipe in pairs(IA_PREPAREDFOODS) do
+    if recipe.spice == nil then
+        ia_foods[name] = recipe
+    end
+end
+GenerateSpicedFoods(ia_foods)
+local ia_spiced = {}
+for name, recipe in pairs(spicedfoods) do
+    if not _spicedfoods[name] then
+        ia_spiced[name] = recipe
+    end
+end
+for name, recipe in pairs(ia_spiced) do
+    env.AddCookerRecipe("portablespicer", recipe)
+    IA_PREPAREDFOODS[name] = recipe
+end
 
 ------------------------------------------------
 
