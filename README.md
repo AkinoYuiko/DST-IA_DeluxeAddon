@@ -11,3 +11,5 @@ An add-on for Island Adventures, include some new features and skins different f
 * Star Staff become tradable with the Octopus King ONLY during the full moon.
 
 * Cutlass has a new skin.
+
+* Warly has Zappy Powder exclusive.
