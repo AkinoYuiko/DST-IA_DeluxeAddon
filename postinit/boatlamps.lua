@@ -18,4 +18,4 @@ local function takefuel_postinit(inst)
     end
 end
 
-AddPrefabPostInit("boatlamp", takefuel_postinit)
+AddPrefabPostInit("boat_lantern", takefuel_postinit)

@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.3.6"
+version = "1.3.7"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
