@@ -11,8 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.3.4"
--- version_title = zh_en("龙蝇的回归，以及更多的皮肤！", "The Return of Dragonfly, and more skins!")
+version = "1.3.5"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
@@ -21,28 +20,26 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 电水母粉现在不会出现在沃利的角色专属栏了。
+- 修复空燃料船灯在充能后被点亮但可交互动作出错的问题。
 
+- 电水母粉现在不会出现在沃利的角色专属栏了。
 - 调整了电水母粉的配方。
-- 修复电咖啡不加速的问题。
-- 修复料理食物的一个动画问题。
-- 新道具：电水母粉（大厨沃利的料理站）。
+- ...
 - 合并物品栏道具为一个文件。
-- 更新了部分文本。
+- 新道具：电水母粉（大厨沃利的料理站）。
 
 "让你的岛屿冒险更加丰富！"]],
     -- en
 "[Version: "..version..[[]
 
 Changelog:
-- Zappy Powder now won't show in Warly's tab.
+- Fix Boat Lamp action issue on taken fuel in empty state.
 
+- Zappy Powder now won't show in Warly's tab.
 - Tweak the recipe of Zappy Powder.
-- Fix issue that zappy coffee won't apply speed boost.
-- Fix an anim issue about food plates.
-- Add Zappy Powder exclusive to Warly.
+- ...
 - Merge inventory images to one file.
-- Update translations.
+- Add Zappy Powder exclusive to Warly.
 
 "Make IA great L again."]]
 )
