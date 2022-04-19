@@ -20,5 +20,5 @@ for _, file in ipairs(mainfiles) do
 end
 
 for _, file in ipairs(postinits) do
-    modimport("main/" .. file)
+    modimport("postinit/" .. file)
 end
