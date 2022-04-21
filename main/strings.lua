@@ -8,10 +8,12 @@ local strings =
     {
         SPICE_JELLYFISH = "Zappy Powder",
         SPICE_JELLYFISH_FOOD = "Zappy {food}",
+        MOONGLASSMACHETE = "Moon Glass Machete",
     },
     RECIPE_DESC =
     {
         SPICE_JELLYFISH = "The feeling of volt jelly.",
+        MOONGLASSMACHETE = STRINGS.RECIPE_DESC.MOONGLASSAXE,
     },
     CHARACTERS =
     {
@@ -20,6 +22,7 @@ local strings =
             DESCRIBE =
             {
                 SPICE_JELLYFISH = "Zap left.",
+                MOONGLASSMACHETE = STRINGS.CHARACTERS.GENERIC.DESCRIBE.MOONGLASSAXE,
             }
         }
     },
@@ -36,7 +39,7 @@ if GetModConfigData("e_yu") then
     GlassicAPI.MergeTranslationFromPO(MODROOT.."languages/e_yu")
 end
 
-UpdateIADEStrings = function()
+UpdateIADStrings = function()
     local file, errormsg = io.open(MODROOT .. "languages/strings.pot", "w")
     if not file then
         print("Can't generate " .. MODROOT .. "languages/strings.pot" .. "\n" .. tostring(errormsg))

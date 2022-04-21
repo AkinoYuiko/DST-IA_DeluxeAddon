@@ -33,3 +33,8 @@ msgstr "酥酥麻麻的感觉。"
 msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH"
 msgid "Zap left."
 msgstr "余电未消。"
+
+#. STRINGS.NAMES.MOONGLASSMACHETE
+msgctxt "STRINGS.NAMES.MOONGLASSMACHETE"
+msgid "Moon Glass Machete"
+msgstr "月光玻璃砍刀"

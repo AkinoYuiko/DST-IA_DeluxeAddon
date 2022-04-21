@@ -58,3 +58,8 @@ msgstr "麻痹粉"
 msgctxt "STRINGS.NAMES.SPICE_JELLYFISH_FOOD"
 msgid "Zappy {food}"
 msgstr "麻痹{food}"
+
+#. STRINGS.SKIN_NAMES.cutlass_malbatross
+msgctxt "STRINGS.SKIN_NAMES.cutlass_malbatross"
+msgid ""
+msgstr "鸭嘴剑"

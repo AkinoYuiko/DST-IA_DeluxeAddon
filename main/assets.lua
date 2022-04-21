@@ -1,7 +1,9 @@
 Assets = {}
 PrefabFiles = {
-    "ia_skinprefabs",
-    "ia_spices",
+    "iad_skinprefabs",
+    "iad_spices",
+
+    "moonglassmachete",
 }
 
 GlassicAPI.RegisterItemAtlas("iad_inventoryimages", Assets)

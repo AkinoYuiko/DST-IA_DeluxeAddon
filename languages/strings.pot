@@ -1,0 +1,44 @@
+msgid ""
+msgstr ""
+"Application: Dont' Starve\n"
+"POT Version: 2.0\n"
+
+#. STRINGS.CHARACTERS.GENERIC.DESCRIBE.MOONGLASSMACHETE
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.MOONGLASSMACHETE"
+msgid "我把它做的非常好用。"
+msgstr ""
+
+#. STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH"
+msgid "Zap left."
+msgstr ""
+
+#. STRINGS.NAMES.MOONGLASSMACHETE
+msgctxt "STRINGS.NAMES.MOONGLASSMACHETE"
+msgid "Moon Glass Machete"
+msgstr ""
+
+#. STRINGS.NAMES.SPICE_JELLYFISH
+msgctxt "STRINGS.NAMES.SPICE_JELLYFISH"
+msgid "Zappy Powder"
+msgstr ""
+
+#. STRINGS.NAMES.SPICE_JELLYFISH_FOOD
+msgctxt "STRINGS.NAMES.SPICE_JELLYFISH_FOOD"
+msgid "Zappy {food}"
+msgstr ""
+
+#. STRINGS.RECIPE_DESC.MOONGLASSMACHETE
+msgctxt "STRINGS.RECIPE_DESC.MOONGLASSMACHETE"
+msgid "脆弱而有效。"
+msgstr ""
+
+#. STRINGS.RECIPE_DESC.SPICE_JELLYFISH
+msgctxt "STRINGS.RECIPE_DESC.SPICE_JELLYFISH"
+msgid "The feeling of volt jelly."
+msgstr ""
+
+#. STRINGS.SKIN_NAMES.cutlass_malbatross
+msgctxt "STRINGS.SKIN_NAMES.cutlass_malbatross"
+msgid "邪天翁喙"
+msgstr ""
