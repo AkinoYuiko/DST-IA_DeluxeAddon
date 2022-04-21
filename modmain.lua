@@ -1,8 +1,9 @@
 local mainfiles =
 {
     "assets",
-    "prefabskin",
+    "tuning",
     "strings",
+    "prefabskin",
 
     "recipes",
     "spices",
@@ -10,9 +11,10 @@ local mainfiles =
 
 local postinits =
 {
-    -- "boatlamps",  committed fix to IA.
+    -- "boatlamps",  -- committed fix to IA.
     "dragoonfly",
-    "octopusking"
+    "glasscutter",
+    "octopusking",
 }
 
 for _, file in ipairs(mainfiles) do
