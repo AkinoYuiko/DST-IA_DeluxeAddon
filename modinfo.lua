@@ -94,7 +94,7 @@ configuration_options = {
     {
         name = "dragoonfly",
         label = zh_en("龙蝇震撼回归火山", "Dragonfly"),
-        hover = zh_en("龙蝇会刷新在火山区域", "Dragonfly spawns in the Volcano"),
+        hover = zh_en("龙蝇会刷新在火山区域，仅在世界生成时启用才会生效", "Dragonfly spawns in the Volcano, only available at worldgen stage."),
         options = boolean,
         default = true
     },
