@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.4.1"
+version = "1.4.2"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
@@ -20,9 +20,10 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
+- 为咖啡设置了oneatenfn以兼容其他模组。
+
 - 稍微更改了Mod图标。
 - 优化了月光玻璃砍刀的动画材质。
-
 - 移除玻璃刀砍竹子的功能。
 - 新道具：月光玻璃砍刀。
 
@@ -31,9 +32,10 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
+- Set oneatenfn for Coffee to make compatibility for other mods.
+
 - Tweak modicon tex slightly.
 - Tweak anim tex for Moon Glass Machete.
-
 - Remove Hack action from Glass Cutter.
 - New item: Moon Glass Machete.
 
