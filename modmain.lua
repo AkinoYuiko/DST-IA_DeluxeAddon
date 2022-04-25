@@ -12,7 +12,7 @@ local mainfiles =
 local postinits =
 {
     -- "boatlamps",  -- committed fix to IA.
-    "coffee_oneaten",
+    "buff_oneaten",
     "dragoonfly",
     "glasscutter",
     "octopusking",
