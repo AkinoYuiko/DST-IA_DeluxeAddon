@@ -1,5 +1,5 @@
 local AddRecipe = GlassicAPI.AddRecipe
-local SortAfter = GlassicAPI.SortAfter
+local SortAfter = GlassicAPI.RecipeSortAfter
 local GetModConfigData = GetModConfigData
 GLOBAL.setfenv(1, GLOBAL)
 
