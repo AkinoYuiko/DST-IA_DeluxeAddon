@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.4.4"
+version = "1.5"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
@@ -20,28 +20,14 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 为咖啡以外的道具也设置了oneatenfn以兼容其他模组。
-
-- 更新适配Glassic API。
-- 为咖啡设置了oneatenfn以兼容其他模组。
-- 稍微更改了Mod图标。
-- 优化了月光玻璃砍刀的动画材质。
-- 移除玻璃刀砍竹子的功能。
-- 新道具：月光玻璃砍刀。
+- 新增：黑曜石工作台可以合成远古科技（可配置，默认为开）。
 
 "让你的岛屿冒险更加丰富！"]],
     -- en
 "[Version: "..version..[[]
 
 Changelog:
-- Set oneatenfn for most buff items to make compatibility for other mods.
-
-- Upate recipes for Glassic API.
-- Set oneatenfn for Coffee to make compatibility for other mods.
-- Tweak modicon tex slightly.
-- Tweak anim tex for Moon Glass Machete.
-- Remove Hack action from Glass Cutter.
-- New item: Moon Glass Machete.
+- Add ancient tech to Obsidian Workbench (configurable, default ON).
 
 "Make IA great L again."]]
 )
@@ -116,6 +102,13 @@ configuration_options = {
         name = "eyebrella_second_recipe",
         label = zh_en("虎鲨眼作为眼球伞的第二配方", "Tiger Eye as Eyebrella's ingredient"),
         -- hover = zh_en("启用一些奇怪的翻译", "Enable some strange zh translations"),
+        options = boolean,
+        default = true
+    },
+    {
+        name = "ancient_obsidian_workbench",
+        label = zh_en("远古黑曜石工作台", "Ancient Obsidian Workbench"),
+        hover = zh_en("黑曜石工作台可以合成远古科技", "Enable crafting ancient tech at obsidian workbench."),
         options = boolean,
         default = true
     },

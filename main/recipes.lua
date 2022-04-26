@@ -17,3 +17,7 @@ if GetModConfigData("eyebrella_second_recipe") then
         end
     end)
 end
+
+if GetModConfigData("ancient_obsidian_workbench") then
+    GlassicAPI.MergeTechBonus("OBSIDIAN_BENCH", "ANCIENT", 4)
+end
