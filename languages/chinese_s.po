@@ -38,3 +38,8 @@ msgstr "余电未消。"
 msgctxt "STRINGS.NAMES.MOONGLASSMACHETE"
 msgid "Moon Glass Machete"
 msgstr "月光玻璃砍刀"
+
+#. STRINGS.SKIN_NAMES.double_umbrellahat_summer
+msgctxt "STRINGS.SKIN_NAMES.double_umbrellahat_summer"
+msgid "Summerella"
+msgstr "夏日清凉伞帽"
