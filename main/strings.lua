@@ -29,6 +29,7 @@ local strings =
     SKIN_NAMES =
     {
         cutlass_malbatross = STRINGS.NAMES.MALBATROSS_BEAK,
+        double_umbrellahat_summer = "Summerella",
     }
 }
 
@@ -39,7 +40,7 @@ if GetModConfigData("e_yu") then
     GlassicAPI.MergeTranslationFromPO(MODROOT.."languages/e_yu")
 end
 
-UpdateIADStrings = function()
+function UpdateIADStrings()
     local file, errormsg = io.open(MODROOT .. "languages/strings.pot", "w")
     if not file then
         print("Can't generate " .. MODROOT .. "languages/strings.pot" .. "\n" .. tostring(errormsg))
