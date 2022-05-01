@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.6"
+version = "1.6.1"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
@@ -20,6 +20,8 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
+- 调整了月光玻璃砍刀的效率。
+
 - 新增：双层伞帽皮肤【夏日清凉伞帽】。
 
 "让你的岛屿冒险更加丰富！"]],
@@ -27,6 +29,8 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
+- Tweak effectiveness of Moon Glass Machete.
+
 - Add a new skin "Summerella" for Dumbrella.
 
 "Make IA great L again."]]
