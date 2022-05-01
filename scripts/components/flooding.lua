@@ -34,11 +34,13 @@ local w, h = _map:GetSize()
 local tile_flood_ratio = TILE_SCALE / FLOOD_SIZE
 local _floodrangex = math.floor(w / 2 * tile_flood_ratio)
 local _floodrangez = math.floor(h / 2 * tile_flood_ratio)
+local _totalfloodpoints = w * tile_flood_ratio * h * tile_flood_ratio
 
 local _israining = false
 local _isfloodseason = false
 local _seasonprogress = 0
 local _clockprogress = 0
+local _floodseasonlength = TUNING.SPRING_LENGTH * TUNING.TOTAL_DAY_TIME * 0.75
 
 local _maxTide = 0
 local _maxtidemod = 1 --settings modifier
@@ -55,7 +57,8 @@ local _maxfloodlevel = _ismastersim and TUNING.MAX_FLOOD_LEVEL
 -- local _flooddrytime = _ismastersim and TUNING.FLOOD_DRY_TIME
 local _floodgrowrate = _ismastersim and 1 / TUNING.FLOOD_GROW_TIME
 local _flooddryrate = _ismastersim and 1 / TUNING.FLOOD_DRY_TIME
-local _puddlechancepertick = _ismastersim and TUNING.FLOOD_FREQUENCY
+local _expectedpuddlenum = _totalfloodpoints * TUNING.FLOOD_FREQUENCY
+local _puddlechance = _ismastersim and _expectedpuddlenum / _floodseasonlength
 -- local _spawnfrequency = _ismastersim and 1 / 100 * FRAMES
 
 --Public
@@ -158,19 +161,40 @@ if _ismastersim then
             local new_z = z + offset.z
             local key = self:GetPointKey(new_x, new_z)
             if self:IsValidPointForFlood(new_x, new_z, nil, key) then
-                floods[key] = CreateFlood(new_x, new_z, puddle, puddle.level - step_left, key)
-                Expand(puddle, new_x, new_z, step_left - 1)
+                local old_flood = floods[key]
+                local dist = puddle.level - step_left
+                local should_expand = true
+                if old_flood then
+                    if dist < old_flood.sources[puddle] then
+                        old_flood.sources[puddle] = dist
+                    else
+                        should_expand = false
+                    end
+                else
+                    floods[key] = CreateFlood(new_x, new_z, puddle, dist, key)
+                end
+                if should_expand then
+                    Expand(puddle, new_x, new_z, step_left - 1)
+                end
             end
         end
+    end
+
+    function Puddle:ExpandFlood(flood)
+        Expand(self, flood.flood_x, flood.flood_z, self.maxflooddist - flood.sources[self])
+    end
+
+    function Puddle:RemoveFlood(flood)
+        RemoveFlood(flood, self)
+        self.floods[flood.flood_key] = nil
     end
 
     function Puddle:UpdateFloods(old_level)
         if old_level then
             if self.level < old_level then
-                for key, flood in pairs(self.floods) do
+                for _, flood in pairs(self.floods) do
                     if flood.sources[self] > self.maxflooddist then
-                        RemoveFlood(flood, self)
-                        self.floods[key] = nil
+                        self:RemoveFlood(flood)
                     end
                 end
             else
@@ -184,7 +208,7 @@ if _ismastersim then
                 for _, flood in pairs(self.floods) do
                     local dist = flood.sources[self]
                     if dist == max_dist then
-                        Expand(self, flood.flood_x, flood.flood_z, self.maxflooddist - dist)
+                        self:ExpandFlood(flood)
                     end
                 end
             end
@@ -339,9 +363,14 @@ if _ismastersim then
 
     self.SetPositionPuddleSource = self.SpawnPuddle -- For compatible with sw's function name
 
+
+    local last_time = 0
     function self:SpawnRandomPuddle(level)
         local x, z = math.random(-_floodrangex, _floodrangex), math.random(-_floodrangez, _floodrangez)
         if self:IsValidPointForFlood(x, z, true) then
+            local time = GetTime()
+            print("new puddle", time - last_time)
+            last_time = time
             self:SpawnPuddleAtPoint(x, z, level)
         end
     end
@@ -351,9 +380,10 @@ if _ismastersim then
         return _isfloodseason
     end
 
-    function self:SetFloodSettings(maxLevel, frequency)
-        _maxfloodlevel = math.min(maxLevel, TUNING.MAX_FLOOD_LEVEL)
-        _puddlechancepertick = frequency
+    function self:SetFloodSettings(max_level, frequency)
+        _maxfloodlevel = math.min(max_level, TUNING.MAX_FLOOD_LEVEL)
+        _expectedpuddlenum = _totalfloodpoints * frequency
+        _puddlechance = _expectedpuddlenum / _floodseasonlength
     end
 
     function self:SetMaxTideModifier(mod)
@@ -383,27 +413,23 @@ local floodblockercreated = _ismastersim and function(src, data)
     local flood = self.floods[key]
     if flood then
         for puddle in pairs(flood.sources) do
-            puddle:UpdateFloods()
+            puddle:RemoveFlood(flood)
         end
     end
 end
 
 local floodblockerremoved = _ismastersim and function(src, data)
     local x, z = self:WorldPosToFloodPoint(data.blocker.Transform:GetWorldPosition())
-    local affected_puddles = {}
+    self.blockers[self:GetPointKey(x, z)] = nil
     for _, offset in ipairs(SURROUNDING_OFFSETS) do
         local new_x = x + offset.x
         local new_z = z + offset.z
         local flood = self.floods[self:GetPointKey(new_x, new_z)]
         if flood then
             for puddle in pairs(flood.sources) do
-                affected_puddles[puddle] = true
+                puddle:ExpandFlood(flood)
             end
         end
-    end
-    self.blockers[self:GetPointKey(x, z)] = nil
-    for puddle in pairs(affected_puddles) do
-        puddle:UpdateFloods()
     end
 end
 
@@ -426,6 +452,11 @@ local precipitation_islandchanged = _ismastersim and function(src, bool)
 	_israining = bool
 end
 
+local springlength = _ismastersim and function(src, length)
+    _floodseasonlength = (length * TUNING.TOTAL_DAY_TIME * 0.75)
+    _puddlechance = _expectedpuddlenum / _floodseasonlength
+end
+
 --------------------------------------------------------------------------
 --[[ Initialization ]]
 --------------------------------------------------------------------------
@@ -437,6 +468,7 @@ if _ismastersim then
     inst:ListenForEvent("clocktick", clocktick, _world)
     -- inst:ListenForEvent("moonphasechanged", moonphasechanged, _world)
     inst:ListenForEvent("precipitation_islandchanged", precipitation_islandchanged, _world)
+    inst:ListenForEvent("springlength", springlength, _world)
 end
 self.inst:StartUpdatingComponent(self)
 
@@ -447,7 +479,7 @@ self.inst:StartUpdatingComponent(self)
 function self:OnUpdate(dt)
     if _ismastersim then
         if _isfloodseason and _world.state.islandiswet and _israining then
-            if math.random() < _puddlechancepertick then
+            if math.random() < _puddlechance * dt then
                 self:SpawnRandomPuddle()
             end
         end

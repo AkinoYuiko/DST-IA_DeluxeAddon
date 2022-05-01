@@ -35,7 +35,7 @@ local function network_flood_fn()
     inst.persists = false
 
     if not TheNet:IsDedicated() then
-        inst:DoTaskInTime(1, function(inst)
+        inst:DoTaskInTime(0, function(inst)
             local x, y, z = inst.Transform:GetWorldPosition()
             if not TheWorld.ismastersim then
                 TheWorld.components.flooding:AddFloodTile(inst)
