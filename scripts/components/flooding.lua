@@ -37,9 +37,9 @@ local _floodrangez = math.floor(h / 2 * tile_flood_ratio)
 local _totalfloodpoints = w * tile_flood_ratio * h * tile_flood_ratio
 
 local _israining = false
+local _isspring = false
 local _isfloodseason = false
 local _seasonprogress = 0
-local _clockprogress = 0
 local _floodseasonlength = TUNING.SPRING_LENGTH * TUNING.TOTAL_DAY_TIME * 0.75
 
 local _maxTide = 0
@@ -48,15 +48,15 @@ local _maxtidemod = 1 --settings modifier
 local _targetTide = 0
 local _currentTide = 0
 
--- local _targetPuddleHeight = _ismastersim and 0
-
 -- for puddles
-local _minfloodlevel = _ismastersim and 2
-local _maxfloodlevel = _ismastersim and TUNING.MAX_FLOOD_LEVEL
+local _forcepuddlelevel
+local _minpuddlelevel = _ismastersim and 2
+local _maxpuddlelevel = _ismastersim and TUNING.MAX_FLOOD_LEVEL
+local _curmaxpuddlelevel = _ismastersim and 0
 -- local _floodgrowtime = _ismastersim and TUNING.FLOOD_GROW_TIME
 -- local _flooddrytime = _ismastersim and TUNING.FLOOD_DRY_TIME
-local _floodgrowrate = _ismastersim and 1 / TUNING.FLOOD_GROW_TIME
-local _flooddryrate = _ismastersim and 1 / TUNING.FLOOD_DRY_TIME
+local _puddlegrowrate = _ismastersim and 1 / TUNING.FLOOD_GROW_TIME
+local _puddledryrate = _ismastersim and 1 / TUNING.FLOOD_DRY_TIME
 local _expectedpuddlenum = _totalfloodpoints * TUNING.FLOOD_FREQUENCY
 local _puddlechance = _ismastersim and _expectedpuddlenum / _floodseasonlength
 -- local _spawnfrequency = _ismastersim and 1 / 100 * FRAMES
@@ -111,7 +111,6 @@ local onlevelchange = _ismastersim and function(self, new_level, old_level)
     if new_level == 0 then
         self:RemoveSelf()
     elseif new_level ~= old_level then
-        self.maxflooddist = new_level - 1
         self:UpdateFloods(old_level)
     end
 end
@@ -121,7 +120,7 @@ local Puddle = _ismastersim and Class(function(self, x, z, level, key)
     self.z = z
     self.key = key
     self.floods = {}
-    self.level = level or _minfloodlevel
+    self.level = level or _minpuddlelevel
 
     self:InitLevelDelta()
 end,
@@ -138,6 +137,9 @@ end
 
 local RemovePuddle = _ismastersim and function(puddle)
     puddle:Remove()
+    if puddle.mapicon_entity then -- Debug icon
+        puddle.mapicon_entity:Remove()
+    end
     self.puddles[puddle.key] = nil
 end
 
@@ -151,37 +153,26 @@ if _ismastersim then
         return self.blockers[puddle.key]
     end
 
-    local function Expand(puddle, x, z, step_left)
-        if step_left < 1 then
-            return
-        end
+    local function Expand(puddle, x, z)
         local floods = puddle.floods
         for _, offset in ipairs(SURROUNDING_OFFSETS) do
             local new_x = x + offset.x
             local new_z = z + offset.z
-            local key = self:GetPointKey(new_x, new_z)
-            if self:IsValidPointForFlood(new_x, new_z, nil, key) then
-                local old_flood = floods[key]
-                local dist = puddle.level - step_left
-                local should_expand = true
-                if old_flood then
-                    if dist < old_flood.sources[puddle] then
-                        old_flood.sources[puddle] = dist
-                    else
-                        should_expand = false
-                    end
-                else
+            local dist = math.abs(new_x - puddle.x) + math.abs(new_z - puddle.z)
+            if dist <= puddle.level then
+                local key = self:GetPointKey(new_x, new_z)
+                if not floods[key] and self:IsValidPointForFlood(new_x, new_z, nil, key) then
                     floods[key] = CreateFlood(new_x, new_z, puddle, dist, key)
-                end
-                if should_expand then
-                    Expand(puddle, new_x, new_z, step_left - 1)
+                    if dist < puddle.level then
+                        Expand(puddle, new_x, new_z)
+                    end
                 end
             end
         end
     end
 
     function Puddle:ExpandFlood(flood)
-        Expand(self, flood.flood_x, flood.flood_z, self.maxflooddist - flood.sources[self])
+        Expand(self, flood.flood_x, flood.flood_z)
     end
 
     function Puddle:RemoveFlood(flood)
@@ -193,7 +184,7 @@ if _ismastersim then
         if old_level then
             if self.level < old_level then
                 for _, flood in pairs(self.floods) do
-                    if flood.sources[self] > self.maxflooddist then
+                    if flood.sources[self] > self.level then
                         self:RemoveFlood(flood)
                     end
                 end
@@ -219,7 +210,7 @@ if _ismastersim then
             if not IsCenterBlocked(self) then
                 self.floods[self.key] = CreateFlood(self.x, self.z, self, 0, self.key)
             end
-            Expand(self, self.x, self.z, self.maxflooddist)
+            Expand(self, self.x, self.z)
             for k, flood in pairs(old_floods) do
                 if not self.floods[k] then
                     RemoveFlood(flood, self)
@@ -233,15 +224,15 @@ if _ismastersim then
 
     function Puddle:OnUpdate(dt)
         if _isfloodseason then
-            if _israining and self.level < _maxfloodlevel then
-                self.leveldelta = self.leveldelta + dt * _floodgrowrate
-                if self.leveldelta > 1 then
+            if _israining then
+                self.leveldelta = self.leveldelta + dt * _puddlegrowrate
+                if self.leveldelta > 1 and self.level < _curmaxpuddlelevel then
                     self.level = self.level + 1
                     self:InitLevelDelta()
                 end
             end
         elseif not _israining then
-            self.leveldelta = self.leveldelta - dt * _flooddryrate
+            self.leveldelta = self.leveldelta - dt * _puddledryrate
             if self.leveldelta < -1 then
                 self.level = self.level - 1
                 self:InitLevelDelta()
@@ -381,7 +372,7 @@ if _ismastersim then
     end
 
     function self:SetFloodSettings(max_level, frequency)
-        _maxfloodlevel = math.min(max_level, TUNING.MAX_FLOOD_LEVEL)
+        _maxpuddlelevel = math.min(max_level, TUNING.MAX_FLOOD_LEVEL)
         _expectedpuddlenum = _totalfloodpoints * frequency
         _puddlechance = _expectedpuddlenum / _floodseasonlength
     end
@@ -435,12 +426,24 @@ end
 
 local seasontick = _ismastersim and function(src, data)
     _seasonprogress = data.progress or 0
-    _isfloodseason = data.season == "spring" and (_seasonprogress + _clockprogress) >= 0.25
-        -- or data.season == "summer" and data.progress < 0.25 --summer is not necessarily the next season!
+    if data.season == "spring" then
+        _isspring = true
+    else
+        _isspring = false
+        _isfloodseason = false
+    end
 end
 
 local clocktick = _ismastersim and function(src, data)
-    _clockprogress = (data.time or 0) / TheWorld.state[TheWorld.state.season.."length"]
+    local total_progress = _seasonprogress + (data.time or 0) / TheWorld.state[TheWorld.state.season.."length"]
+    if _isspring and not _isfloodseason then
+        _isfloodseason = total_progress >= 0.25
+    end
+    if _forcepuddlelevel then
+        _curmaxpuddlelevel = _forcepuddlelevel
+    elseif _isfloodseason and _israining then
+        _curmaxpuddlelevel = math.ceil(_maxpuddlelevel * math.max(0, (total_progress - 0.25) / 0.75))
+    end
 end
 
 -- local moonphasechanged = _ismastersim and function(src, phase)
@@ -531,6 +534,7 @@ if _ismastersim then
 
     function self:OnLoad(data)
     	if data then
+            local time = os.clock()
             if data.puddles then
                 for key, puddle_data in pairs(data.puddles) do
                     if not self.puddles[key] then
@@ -540,6 +544,7 @@ if _ismastersim then
                     -- self:SpawnPuddleAtPoint(k):OnLoad(v)
                 end
             end
+            print("flooding cmp load time:", os.clock() - time)
     	end
     end
 
@@ -549,22 +554,38 @@ end
 --[[ Debug ]]
 --------------------------------------------------------------------------
 
+local function init_debug_icon(icon)
+    icon.MiniMapEntity:SetPriority(22) -- Higher than blooonspeed
+    icon.MiniMapEntity:SetIcon("rawling.tex")
+end
 function self:ShowPuddles()
 	-- Shows all puddles on the map, as rawling
 	for _, puddle in pairs(self.puddles) do
-        local minimap = puddle.entity:AddMiniMapEntity()
-        minimap:SetIcon("rawling.tex")
-        minimap:SetCanUseCache(false)
-        minimap:SetDrawOverFogOfWar(true)
+        if not puddle.mapicon_entity then
+            local icon = SpawnPrefab("globalmapiconunderfog")
+            init_debug_icon(icon)
+            icon.MiniMapEntity:SetIsProxy(false)
+            icon.Transform:SetPosition(self:FloodPointToWorldPos(puddle.x, puddle.z))
+
+            local proxy_icon = SpawnPrefab("globalmapiconunderfog")
+            init_debug_icon(proxy_icon)
+            proxy_icon:TrackEntity(icon)
+
+            puddle.mapicon_entity = icon
+        end
 	end
+end
+
+function self:CountPuddle()
+    return GetTableSize(self.puddles)
 end
 
 function self:RecalculateFloodable()
 
 end
 
-function self:ForcePuddleHeight()
-
+function self:ForcePuddleHeight(level)
+    _forcepuddlelevel = level
 end
 
 function self:RemoveAllPuddles()
