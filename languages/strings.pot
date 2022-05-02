@@ -38,6 +38,11 @@ msgctxt "STRINGS.RECIPE_DESC.SPICE_JELLYFISH"
 msgid "The feeling of volt jelly."
 msgstr ""
 
+#. STRINGS.SKIN_NAMES.aerodynamichat_shark
+msgctxt "STRINGS.SKIN_NAMES.aerodynamichat_shark"
+msgid "Sharkness"
+msgstr ""
+
 #. STRINGS.SKIN_NAMES.cutlass_malbatross
 msgctxt "STRINGS.SKIN_NAMES.cutlass_malbatross"
 msgid "Malbatross Bill"

@@ -33,7 +33,17 @@ double_umbrellahat_clear_fn = function(inst)
     ia_basic_clear_fn(inst, "hat_double_umbrella")
 end
 
+aerodynamichat_init_fn = function(inst, skinname, override_build)
+    GlassicAPI.BasicInitFn(inst, skinname, override_build)
+    GlassicAPI.BasicOnequipFn(inst, "hat", override_build or skinname)
+end
+
+aerodynamichat_clear_fn = function(inst)
+    ia_basic_clear_fn(inst, "hat_aerodynamic")
+end
+
 GlassicAPI.SkinHandler.AddModSkins({
-    cutlass = { "cutlass_malbatross" },
-    double_umbrellahat = { "double_umbrellahat_summer" }
+    cutlass = {"cutlass_malbatross"},
+    double_umbrellahat = {"double_umbrellahat_summer"},
+    aerodynamichat = {"aerodynamichat_shark"},
 })

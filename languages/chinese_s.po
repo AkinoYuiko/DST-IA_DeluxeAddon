@@ -14,6 +14,16 @@ msgstr ""
 "POT Version: 2.0\n"
 "X-Generator: Poedit 3.0.1\n"
 
+#. STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH"
+msgid "Zap left."
+msgstr "余电未消。"
+
+#. STRINGS.NAMES.MOONGLASSMACHETE
+msgctxt "STRINGS.NAMES.MOONGLASSMACHETE"
+msgid "Moon Glass Machete"
+msgstr "月光玻璃砍刀"
+
 #. STRINGS.NAMES.SPICE_JELLYFISH
 msgctxt "STRINGS.NAMES.SPICE_JELLYFISH"
 msgid "Zappy Powder"
@@ -29,15 +39,10 @@ msgctxt "STRINGS.RECIPE_DESC.SPICE_JELLYFISH"
 msgid "The feeling of volt jelly."
 msgstr "酥酥麻麻的感觉。"
 
-#. STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH
-msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH"
-msgid "Zap left."
-msgstr "余电未消。"
-
-#. STRINGS.NAMES.MOONGLASSMACHETE
-msgctxt "STRINGS.NAMES.MOONGLASSMACHETE"
-msgid "Moon Glass Machete"
-msgstr "月光玻璃砍刀"
+#. STRINGS.SKIN_NAMES.aerodynamichat_shark
+msgctxt "STRINGS.SKIN_NAMES.aerodynamichat_shark"
+msgid "Sharkness"
+msgstr "鲨克妮丝"
 
 #. STRINGS.SKIN_NAMES.double_umbrellahat_summer
 msgctxt "STRINGS.SKIN_NAMES.double_umbrellahat_summer"
