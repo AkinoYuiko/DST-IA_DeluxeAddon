@@ -20,6 +20,7 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
+- 修复了章鱼王潜在的一个问题。
 - 调整了月光玻璃砍刀的效率。
 
 - 新增：双层伞帽皮肤【夏日清凉伞帽】。
@@ -29,6 +30,7 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
+- Optimize code for Octopus King to avoid a potential crash.
 - Tweak effectiveness of Moon Glass Machete.
 
 - Add a new skin "Summerella" for Dumbrella.
