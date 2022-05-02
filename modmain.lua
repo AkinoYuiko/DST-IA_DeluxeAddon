@@ -13,15 +13,25 @@ local postinits =
 {
     -- "boatlamps",  -- committed fix to IA.
     "buff_oneaten",
-    "dragoonfly",
-    "glasscutter",
-    "octopusking",
+    prefabs =
+    {
+        "dragoonfly",
+        "glasscutter",
+        "kraken",
+        "octopusking",
+    }
 }
 
 for _, file in ipairs(mainfiles) do
     modimport("main/" .. file)
 end
 
-for _, file in ipairs(postinits) do
-    modimport("postinit/" .. file)
+for index, files in pairs(postinits) do
+    if type(files) == "table" then
+        for _, file in ipairs(files) do
+            modimport("postinit/".. index .. "/" .. file)
+        end
+    else
+        modimport("postinit/".. files)
+    end
 end

@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.6.2"
+version = "1.7"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
@@ -20,20 +20,16 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 修复了章鱼王潜在的一个问题。
-- 调整了月光玻璃砍刀的效率。
-
-- 新增：双层伞帽皮肤【夏日清凉伞帽】。
+- 海妖常驻潮湿（可配置，默认开启）。
+- 机器人的模块可以用睿智帽制作。
 
 "让你的岛屿冒险更加丰富！"]],
     -- en
 "[Version: "..version..[[]
 
 Changelog:
-- Optimize code for Octopus King to avoid a potential crash.
-- Tweak effectiveness of Moon Glass Machete.
-
-- Add a new skin "Summerella" for Dumbrella.
+- Quacken is always wet.
+- WX78's modules can be crafted with Brain of Thought.
 
 "Make IA great L again."]]
 )
@@ -103,6 +99,12 @@ configuration_options = {
         options = boolean,
         default = true
     },
+    {
+        name = "wet_quacken",
+        label = zh_en("海妖常驻潮湿", "Quacken always wet"),
+        options = boolean,
+        default = true
+    },
     AddTitle(zh_en("- 配方相关 -","- The Crafting -")),
     {
         name = "eyebrella_second_recipe",
@@ -115,6 +117,12 @@ configuration_options = {
         name = "ancient_obsidian_workbench",
         label = zh_en("远古黑曜石工作台", "Ancient Obsidian Workbench"),
         hover = zh_en("黑曜石工作台可以合成远古科技", "Enable crafting ancient tech at obsidian workbench."),
+        options = boolean,
+        default = true
+    },
+    {
+        name = "wx78_jellyfishbrain",
+        label = zh_en("睿智帽可以制作机器人模块", "WX78 Modules in Brain of Thought"),
         options = boolean,
         default = true
     },

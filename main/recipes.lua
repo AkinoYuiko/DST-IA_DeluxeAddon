@@ -21,3 +21,7 @@ end
 if GetModConfigData("ancient_obsidian_workbench") then
     GlassicAPI.MergeTechBonus("OBSIDIAN_BENCH", "ANCIENT", 4)
 end
+
+if GetModConfigData("wx78_jellyfishbrain") then
+    TECH.LOST.ROBOTMODULECRAFT = 10
+end
