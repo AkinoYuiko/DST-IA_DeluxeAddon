@@ -12,6 +12,20 @@ local function OnAcceptStarStaff()
     OCTOPUSKING_LOOT.chestloot["yellowstaff"] = "opalstaff"
 end
 
+local function StartTrading(inst)
+    if not inst.components.trader.enabled then
+        inst.components.trader:Enable()
+
+        if inst.sleepfn then
+            inst.AnimState:PlayAnimation("sleep_pst")
+            inst:RemoveEventCallback("animover", inst.sleepfn)
+            inst.sleepfn = nil
+        end
+
+        inst.AnimState:PushAnimation("idle", true)
+    end
+end
+
 local function OnSave(inst, data)
     data.accept_staff = OCTOPUSKING_LOOT.chestloot["yellowstaff"]
 end
@@ -33,8 +47,11 @@ AddPrefabPostInit("octopusking", function(inst)
         end
     end)
 
+    local startfn = inst.worldstatewatching.startday[1]
+    inst:StopWatchingWorldState("startday", startfn)
     inst:WatchWorldState("startday", function(inst)
-        OnRefuseStarStaff()
+        -- OnRefuseStarStaff()
+        StartTrading(inst)
     end)
 
     local onsave = inst.OnSave
