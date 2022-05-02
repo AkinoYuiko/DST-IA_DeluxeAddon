@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.7"
+version = "1.7.1"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
@@ -20,6 +20,8 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
+- 新皮肤：鲨克妮丝（流线型帽子）。
+
 - 海妖常驻潮湿（可配置，默认开启）。
 - 机器人的模块可以用睿智帽制作。
 
@@ -28,6 +30,8 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
+- New skin: Sharkness (Sleek Hat).
+
 - Quacken is always wet.
 - WX78's modules can be crafted with Brain of Thought.
 
