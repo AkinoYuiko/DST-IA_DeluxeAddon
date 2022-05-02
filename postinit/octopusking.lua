@@ -37,6 +37,15 @@ AddPrefabPostInit("octopusking", function(inst)
         OnRefuseStarStaff()
     end)
 
-    inst.OnSave = OnSave
-    inst.OnLoad = OnLoad
+    local onsave = inst.OnSave
+    inst.OnSave = function(inst, data)
+        if onsave then onsave(inst, data) end
+        OnSave(inst, data)
+    end
+
+    local onload = inst.OnLoad
+    inst.OnLoad = function(inst, data)
+        if onload then onload(inst, data) end
+        OnLoad(inst, data)
+    end
 end)
