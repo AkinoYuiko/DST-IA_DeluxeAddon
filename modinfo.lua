@@ -113,7 +113,7 @@ configuration_options = {
     },
     AddTitle(zh_en("- 玩家相关 -", "- The Player -")),
     {
-        name = "eyebrella_second_recipe",
+        name = "wx78_charge_via_zappy_food",
         label = zh_en("机器人吃电料理充电", "WX78 charge via zappy food"),
         options = boolean,
         default = true
