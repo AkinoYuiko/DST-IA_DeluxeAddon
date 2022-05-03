@@ -6,6 +6,15 @@ if not AddNetworkProxy then
     print("WARNING: IA could not find AddNetworkProxy, tides and flood are going to be very laggy!")
 end
 
+NO_PUDDLE_GROUNDS = {
+    [GROUND.WOODFLOOR] = true,
+    [GROUND.CARPET] = true,
+    [GROUND.CHECKER] = true,
+    [GROUND.SCALE] = true,
+    [GROUND.SNAKESKIN] = true,
+    [GROUND.ROAD] = true,
+}
+
 -- :muted:
 local function set_tile_state(x, y, key, val, ...)
     local w, h = TheWorld.Map:GetSize()

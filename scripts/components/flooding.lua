@@ -39,7 +39,7 @@ local _totalfloodpoints = w * tile_flood_ratio * h * tile_flood_ratio
 local _israining = false
 local _isspring = false
 local _isfloodseason = false
-local _seasonprogress = 0
+local _elapseddaysinseason = 0
 local _floodseasonlength = TUNING.SPRING_LENGTH * TUNING.TOTAL_DAY_TIME * 0.75
 
 local _maxTide = 0
@@ -50,7 +50,7 @@ local _currentTide = 0
 
 -- for puddles
 local _forcepuddlelevel
-local _minpuddlelevel = _ismastersim and 2
+local _minpuddlelevel = _ismastersim and 1
 local _maxpuddlelevel = _ismastersim and TUNING.MAX_FLOOD_LEVEL
 local _curmaxpuddlelevel = _ismastersim and 0
 -- local _floodgrowtime = _ismastersim and TUNING.FLOOD_GROW_TIME
@@ -59,7 +59,6 @@ local _puddlegrowrate = _ismastersim and 1 / TUNING.FLOOD_GROW_TIME
 local _puddledryrate = _ismastersim and 1 / TUNING.FLOOD_DRY_TIME
 local _expectedpuddlenum = _totalfloodpoints * TUNING.FLOOD_FREQUENCY
 local _puddlechance = _ismastersim and _expectedpuddlenum / _floodseasonlength
--- local _spawnfrequency = _ismastersim and 1 / 100 * FRAMES
 
 --Public
 
@@ -163,9 +162,7 @@ if _ismastersim then
                 local key = self:GetPointKey(new_x, new_z)
                 if not floods[key] and self:IsValidPointForFlood(new_x, new_z, nil, key) then
                     floods[key] = CreateFlood(new_x, new_z, puddle, dist, key)
-                    if dist < puddle.level then
-                        Expand(puddle, new_x, new_z)
-                    end
+                    Expand(puddle, new_x, new_z)
                 end
             end
         end
@@ -324,7 +321,7 @@ if _ismastersim then
             return false
         end
         if spawning then
-            return not GROUND_FLOORING[ground]
+            return not NO_PUDDLE_GROUNDS[ground]
                 and IsInIAClimate(Vector3(world_x, 0, world_z))
         end
         return true
@@ -425,7 +422,7 @@ local floodblockerremoved = _ismastersim and function(src, data)
 end
 
 local seasontick = _ismastersim and function(src, data)
-    _seasonprogress = data.progress or 0
+    _elapseddaysinseason = data.elapseddaysinseason or 0
     if data.season == "spring" then
         _isspring = true
     else
@@ -435,7 +432,7 @@ local seasontick = _ismastersim and function(src, data)
 end
 
 local clocktick = _ismastersim and function(src, data)
-    local total_progress = _seasonprogress + (data.time or 0) / TheWorld.state[TheWorld.state.season.."length"]
+    local total_progress = (_elapseddaysinseason + (data.time or 0)) / TheWorld.state[TheWorld.state.season.."length"]
     if _isspring and not _isfloodseason then
         _isfloodseason = total_progress >= 0.25
     end
@@ -544,7 +541,7 @@ if _ismastersim then
                     -- self:SpawnPuddleAtPoint(k):OnLoad(v)
                 end
             end
-            print("flooding cmp load time:", os.clock() - time)
+            print("flooding cmp loaded in:", os.clock() - time, "sec")
     	end
     end
 
