@@ -525,7 +525,8 @@ if _ismastersim then
             }
         end
         return {
-            puddles = puddles_data
+            puddles = puddles_data,
+            _puddles = {}, -- For compatible with old IA flooding component (zarknoope 👎)
         }
     end
 
