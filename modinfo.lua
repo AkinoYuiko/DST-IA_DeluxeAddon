@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.7.1"
+version = "1.7.2"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
@@ -20,8 +20,9 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 新皮肤：鲨克妮丝（流线型帽子）。
+- 机器人可以吃水母或者电料理充电（可配置，默认开启）。
 
+- 新皮肤：鲨克妮丝（流线型帽子）。
 - 海妖常驻潮湿（可配置，默认开启）。
 - 机器人的模块可以用睿智帽制作。
 
@@ -30,9 +31,10 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
-- New skin: Sharkness (Sleek Hat).
+- WX78 is able to charge by eating dead jellyfish or food spiced with zappy powder (Default On).
 
-- Quacken is always wet.
+- New skin: Sharkness (Sleek Hat).
+- Quacken is always wet (Default On).
 - WX78's modules can be crafted with Brain of Thought.
 
 "Make IA great L again."]]
@@ -109,11 +111,17 @@ configuration_options = {
         options = boolean,
         default = true
     },
-    AddTitle(zh_en("- 配方相关 -","- The Crafting -")),
+    AddTitle(zh_en("- 玩家相关 -", "- The Player -")),
+    {
+        name = "eyebrella_second_recipe",
+        label = zh_en("机器人吃电料理充电", "WX78 charge via zappy food"),
+        options = boolean,
+        default = true
+    },
+    AddTitle(zh_en("- 配方相关 -", "- The Crafting -")),
     {
         name = "eyebrella_second_recipe",
         label = zh_en("虎鲨眼作为眼球伞的第二配方", "Tiger Eye as Eyebrella's ingredient"),
-        -- hover = zh_en("启用一些奇怪的翻译", "Enable some strange zh translations"),
         options = boolean,
         default = true
     },
