@@ -193,11 +193,15 @@ if _ismastersim then
                         max_dist = dist
                     end
                 end
+                local floods = {}
                 for _, flood in pairs(self.floods) do
                     local dist = flood.sources[self]
                     if dist == max_dist then
-                        self:ExpandFlood(flood)
+                        table.insert(floods, flood)
                     end
+                end
+                for _, flood in ipairs(floods) do
+                    self:ExpandFlood(flood)
                 end
             end
         else
