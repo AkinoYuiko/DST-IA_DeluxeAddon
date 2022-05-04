@@ -5,5 +5,5 @@ AllLayouts["VolcanoDragonflyArena"] = StaticLayout.Get("map/static_layouts/volca
 AllLayouts["VolcanoDragonflyArena"].ground_types = {GROUND.BRICK_GLOW}
 
 AddTaskSetPreInit("volcanoset", function(task_set_data)
-    task_set_data.set_pieces.VolcanoDragonflyArena = {count = 1 , tasks = {"volcano"}}
+    task_set_data.set_pieces.VolcanoDragonflyArena = {count = 1, tasks = {"volcano"}}
 end)
