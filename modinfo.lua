@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.7.2"
+version = "1.8"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
@@ -20,22 +20,14 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 机器人可以吃水母或者电料理充电（可配置，默认开启）。
-
-- 新皮肤：鲨克妮丝（流线型帽子）。
-- 海妖常驻潮湿（可配置，默认开启）。
-- 机器人的模块可以用睿智帽制作。
+- 水坑重做。
 
 "让你的岛屿冒险更加丰富！"]],
     -- en
 "[Version: "..version..[[]
 
 Changelog:
-- WX78 is able to charge by eating dead jellyfish or food spiced with zappy powder (Default On).
-
-- New skin: Sharkness (Sleek Hat).
-- Quacken is always wet (Default On).
-- WX78's modules can be crafted with Brain of Thought.
+- Rework flooding.
 
 "Make IA great L again."]]
 )

@@ -361,7 +361,7 @@ if _ismastersim then
         local x, z = math.random(-_floodrangex, _floodrangex), math.random(-_floodrangez, _floodrangez)
         if self:IsValidPointForFlood(x, z, true) then
             local time = GetTime()
-            print("new puddle", time - last_time)
+            -- print("new puddle", time - last_time)
             last_time = time
             self:SpawnPuddleAtPoint(x, z, level)
         end
@@ -546,7 +546,7 @@ if _ismastersim then
                     -- self:SpawnPuddleAtPoint(k):OnLoad(v)
                 end
             end
-            print("flooding cmp loaded in:", os.clock() - time, "sec")
+            -- print("flooding cmp loaded in:", os.clock() - time, "sec")
     	end
     end
 
