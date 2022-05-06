@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.8.1"
+version = "1.8.2"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
@@ -20,8 +20,9 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
-- 为"暗夜故事集"和"纯净辅助"增加替代配方。
+- 调整上次更新的替代配方的判断条件。
 
+- 为"暗夜故事集"和"纯净辅助"增加替代配方。
 - 水坑重做。
 
 "让你的岛屿冒险更加丰富！"]],
@@ -29,8 +30,9 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
-- Change ingredients of recipes in "Night Stories" and "DST Fixed".
+- Tweak alternative recipe conditions for last update.
 
+- Change ingredients of recipes in "Night Stories" and "DST Fixed".
 - Rework flooding.
 
 "Make IA great L again."]]
