@@ -55,5 +55,5 @@ GlassicAPI.SkinHandler.AddModSkins({
     cutlass = {"cutlass_malbatross"},
     double_umbrellahat = {"double_umbrellahat_summer"},
     aerodynamichat = {"aerodynamichat_shark"},
-    spear_obsidian = {"spear_obsidian_spinner"},
+    -- spear_obsidian = {"spear_obsidian_spinner"}, -- Add in future versions.
 })

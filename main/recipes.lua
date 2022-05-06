@@ -28,14 +28,6 @@ end
 
 -----------------------------------------------------------------------------------------------------
 -- Night Stories compatible
-local function moon2obs_postinit(recipe)
-    for _, v in ipairs(recipe.ingredients) do
-        if v.type == "moonrocknugget" then
-            v.type = "obsidian"
-        end
-    end
-end
-
 local MOONROCK_TO_OBSIDIAN =
 {
     "friendshipring",
@@ -43,15 +35,34 @@ local MOONROCK_TO_OBSIDIAN =
     "friendshiptotem_light",
 }
 
-for _, v in ipairs(MOONROCK_TO_OBSIDIAN) do
-    env.AddRecipePostInit(v, moon2obs_postinit)
-end
+local DSTFIX_TABLE =
+{
+    "alterguardianhatshard",
+}
 
--- DST Fixed compatible
-env.AddRecipePostInit("alterguardianhatshard", function(recipe)
-    for _, v in ipairs(recipe.ingredients) do
-        if v.type == "moonglass" then
-            v.amount = 40
+env.AddSimPostInit(function()
+    if TheWorld:HasTag("volcano") then
+        for _, prefab in ipairs(MOONROCK_TO_OBSIDIAN) do
+            local recipe = AllRecipes[prefab]
+            if recipe then
+                for _, ingredient in ipairs(recipe.ingredients) do
+                    if ingredient.type == "moonrocknugget" then
+                        ingredient.type = "obsidian"
+                    end
+                end
+            end
+        end
+    end
+    if TheWorld:HasTag("island") or TheWorld:HasTag("volcano") then
+        for _, prefab in ipairs(DSTFIX_TABLE) do
+            local recipe = AllRecipes[prefab]
+            if recipe then
+                for _, ingredient in ipairs(recipe.ingredients) do
+                    if ingredient.type == "moonglass" then
+                        ingredient.amount = 40
+                    end
+                end
+            end
         end
     end
 end)
