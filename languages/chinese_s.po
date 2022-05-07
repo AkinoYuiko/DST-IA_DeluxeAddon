@@ -48,3 +48,8 @@ msgstr "鲨克妮丝"
 msgctxt "STRINGS.SKIN_NAMES.double_umbrellahat_summer"
 msgid "Summerella"
 msgstr "夏日清凉伞帽"
+
+#. STRINGS.SKIN_NAMES.spear_obsidian_spinner
+msgctxt "STRINGS.SKIN_NAMES.spear_obsidian_spinner"
+msgid "Spinner"
+msgstr "轮刃"

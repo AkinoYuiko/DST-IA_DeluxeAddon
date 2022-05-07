@@ -13,15 +13,18 @@ local mainfiles =
 
 local postinits =
 {
-    -- "boatlamps",  -- committed fix to IA.
-    "buff_oneaten",
+    components =
+    {
+        "obsidiantool",
+    },
     prefabs =
     {
         "dragoonfly",
         "glasscutter",
         "kraken",
         "octopusking",
-    }
+    },
+    "buff_oneaten",
 }
 
 for _, file in ipairs(mainfiles) do
@@ -33,7 +36,7 @@ for index, files in pairs(postinits) do
         for _, file in ipairs(files) do
             modimport("postinit/".. index .. "/" .. file)
         end
-    else
+    elseif type(files) == "string" then
         modimport("postinit/".. files)
     end
 end

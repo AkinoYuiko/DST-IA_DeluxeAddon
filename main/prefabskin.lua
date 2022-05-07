@@ -16,12 +16,12 @@ end
 cutlass_init_fn = function(inst, skinname, override_build)
     GlassicAPI.BasicInitFn(inst, skinname, override_build)
     GlassicAPI.BasicOnequipFn(inst, "hand", override_build or skinname, "swap_cutlass")
-	inst.components.floater:UpdateAnimations("idle_water_malbatross", "idle")
+    inst.components.floater:UpdateAnimations("idle_water_malbatross", "idle")
 end
 
 cutlass_clear_fn = function(inst)
     ia_basic_clear_fn(inst, "cutlass")
-	inst.components.floater:UpdateAnimations("idle_water", "idle")
+    inst.components.floater:UpdateAnimations("idle_water", "idle")
 end
 
 double_umbrellahat_init_fn = function(inst, skinname, override_build)
@@ -45,15 +45,17 @@ end
 spear_obsidian_init_fn = function(inst, skinname, override_build)
     GlassicAPI.BasicInitFn(inst, skinname, override_build)
     GlassicAPI.BasicOnequipFn(inst, "hand", override_build or skinname, "swap_spear")
+	inst.components.floater:UpdateAnimations("spear_water", "idle")
 end
 
 spear_obsidian_clear_fn = function(inst)
     ia_basic_clear_fn(inst, "spear_obsidian")
+	inst.components.floater:UpdateAnimations("idle_water", "idle")
 end
 
 GlassicAPI.SkinHandler.AddModSkins({
     cutlass = {"cutlass_malbatross"},
     double_umbrellahat = {"double_umbrellahat_summer"},
     aerodynamichat = {"aerodynamichat_shark"},
-    -- spear_obsidian = {"spear_obsidian_spinner"}, -- Add in future versions.
+    spear_obsidian = {"spear_obsidian_spinner"}, -- Add in future versions.
 })

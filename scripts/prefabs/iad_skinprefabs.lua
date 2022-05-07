@@ -33,7 +33,6 @@ table.insert(prefabs, CreatePrefabSkin("aerodynamichat_shark", {
     type = "item",
     rarity = "Glassic",
     assets = {
-        -- Asset( "ANIM", "anim/aerodynamichat_shark.zip" ), -- test
         Asset( "DYNAMIC_ANIM", "anim/dynamic/aerodynamichat_shark.zip" ),
         Asset( "PKGREF", "anim/dynamic/aerodynamichat_shark.dyn" ),
     },
@@ -43,19 +42,18 @@ table.insert(prefabs, CreatePrefabSkin("aerodynamichat_shark", {
     skin_tags = {"AERODYNAMICHAT"}
 }))
 
--- table.insert(prefabs, CreatePrefabSkin("spear_obsidian_spinner", {
---     base_prefab = "spear_obsidian",
---     type = "item",
---     rarity = "Glassic",
---     assets = {
---         Asset( "ANIM", "anim/spear_obsidian_spinner.zip" ), -- test
---         -- Asset( "DYNAMIC_ANIM", "anim/dynamic/spear_obsidian_spinner.zip" ),
---         -- Asset( "PKGREF", "anim/dynamic/spear_obsidian_spinner.dyn" ),
---     },
---     init_fn = function(inst)
---         spear_obsidian_init_fn(inst, "spear_obsidian_spinner")
---     end,
---     skin_tags = {"SPEAR_OBSIDIAN"}
--- }))
+table.insert(prefabs, CreatePrefabSkin("spear_obsidian_spinner", {
+    base_prefab = "spear_obsidian",
+    type = "item",
+    rarity = "Glassic",
+    assets = {
+        Asset( "DYNAMIC_ANIM", "anim/dynamic/spear_obsidian_spinner.zip" ),
+        Asset( "PKGREF", "anim/dynamic/spear_obsidian_spinner.dyn" ),
+    },
+    init_fn = function(inst)
+        spear_obsidian_init_fn(inst, "spear_obsidian_spinner")
+    end,
+    skin_tags = {"SPEAR_OBSIDIAN"}
+}))
 
 return unpack(prefabs)
