@@ -45,12 +45,12 @@ end
 spear_obsidian_init_fn = function(inst, skinname, override_build)
     GlassicAPI.BasicInitFn(inst, skinname, override_build)
     GlassicAPI.BasicOnequipFn(inst, "hand", override_build or skinname, "swap_spear")
-	inst.components.floater:UpdateAnimations("spear_water", "idle")
+    inst.components.floater:UpdateAnimations("spear_water", "idle")
 end
 
 spear_obsidian_clear_fn = function(inst)
     ia_basic_clear_fn(inst, "spear_obsidian")
-	inst.components.floater:UpdateAnimations("idle_water", "idle")
+    inst.components.floater:UpdateAnimations("idle_water", "idle")
 end
 
 GlassicAPI.SkinHandler.AddModSkins({

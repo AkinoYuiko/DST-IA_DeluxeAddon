@@ -30,10 +30,10 @@ local function pristinefn()
 
     inst:AddTag("sharp")
 
-	MakeInventoryFloatable(inst)
-	inst.components.floater:UpdateAnimations("idle_water", "idle")
+    MakeInventoryFloatable(inst)
+    inst.components.floater:UpdateAnimations("idle_water", "idle")
 
-	return inst
+    return inst
 end
 
 local function masterfn(inst)
@@ -72,11 +72,11 @@ local function fn()
 
     inst.entity:SetPristine()
 
-	if not TheWorld.ismastersim then
-		return inst
-	end
+    if not TheWorld.ismastersim then
+        return inst
+    end
 
-	masterfn(inst)
+    masterfn(inst)
 
     return inst
 end

@@ -42,10 +42,10 @@ icon = "modicon.tex"
 server_filter_tags =
 {
     "island_adventures",
-	"island adventures",
-	"island",
-	"adventures",
-	"shipwrecked",
+    "island adventures",
+    "island",
+    "adventures",
+    "shipwrecked",
 }
 
 folder_name = folder_name or "workshop-"

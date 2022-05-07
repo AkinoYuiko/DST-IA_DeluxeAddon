@@ -448,12 +448,12 @@ local clocktick = _ismastersim and function(src, data)
 end
 
 -- local moonphasechanged = _ismastersim and function(src, phase)
--- 	assert(phase ~= nil)
--- 	_maxTide = _moontideheights[phase] or 0
+--     assert(phase ~= nil)
+--     _maxTide = _moontideheights[phase] or 0
 -- end
 
 local precipitation_islandchanged = _ismastersim and function(src, bool)
-	_israining = bool
+    _israining = bool
 end
 
 local springlength = _ismastersim and function(src, length)
@@ -535,7 +535,7 @@ if _ismastersim then
     end
 
     function self:OnLoad(data)
-    	if data then
+        if data then
             local time = os.clock()
             if data.puddles then
                 for key, puddle_data in pairs(data.puddles) do
@@ -547,7 +547,7 @@ if _ismastersim then
                 end
             end
             -- print("flooding cmp loaded in:", os.clock() - time, "sec")
-    	end
+        end
     end
 
 end
@@ -561,8 +561,8 @@ local function init_debug_icon(icon)
     icon.MiniMapEntity:SetIcon("rawling.tex")
 end
 function self:ShowPuddles()
-	-- Shows all puddles on the map, as rawling
-	for _, puddle in pairs(self.puddles) do
+    -- Shows all puddles on the map, as rawling
+    for _, puddle in pairs(self.puddles) do
         if not puddle.mapicon_entity then
             local icon = SpawnPrefab("globalmapiconunderfog")
             init_debug_icon(icon)
@@ -575,7 +575,7 @@ function self:ShowPuddles()
 
             puddle.mapicon_entity = icon
         end
-	end
+    end
 end
 
 function self:CountPuddle()

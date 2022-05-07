@@ -54,7 +54,7 @@ local function edible_buff_postinit(inst)
         end
     end
 
-	if edible.naughtyvalue and edible.naughtyvalue > 0 then
+    if edible.naughtyvalue and edible.naughtyvalue > 0 then
         local _oneaten = edible.oneaten
         edible.oneaten = function(inst, eater)
             if _oneaten then _oneaten(inst, eater) end
@@ -62,7 +62,7 @@ local function edible_buff_postinit(inst)
                 TheWorld.components.kramped:OnNaughtyAction(edible.naughtyvalue, eater)
             end
         end
-	end
+    end
 end
 
 AddPrefabPostInitAny(edible_buff_postinit)
