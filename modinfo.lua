@@ -11,7 +11,7 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.9"
+version = "1.9.1"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony"
 
@@ -20,6 +20,10 @@ description = zh_en(
 "[版本: "..version..[[]
 
 更新内容:
+- 取消宝石核心的多配方支持，改为根据世界类型自动判断配方（默认开启）。
+- 优化了轮刃的动画。
+- 修复了黑曜石长矛放在地上错位的问题。
+
 - 新皮肤：轮刃（黑曜石长矛）
 
 "让你的岛屿冒险更加丰富！"]],
@@ -27,6 +31,10 @@ description = zh_en(
 "[Version: "..version..[[]
 
 Changelog:
+- Remove alternative ingredients provided by gem core, now ingredients are judged by world type (Default On).
+- Update anim and tex for skin: Spinner.
+- Fix offset issue of Obsidian Spear's idle anim.
+
 - New Skin: Spinner (Obsidian Spear)
 
 "Make IA great L again."]]
@@ -86,7 +94,7 @@ configuration_options = {
     {
         name = "dragoonfly",
         label = zh_en("龙蝇震撼回归火山", "Dragonfly"),
-        hover = zh_en("龙蝇会刷新在火山区域，仅在世界生成时启用才会生效", "Dragonfly spawns in the Volcano, only available at worldgen stage."),
+        hover = zh_en("龙蝇会刷新在火山区域\n仅在世界生成时启用才会生效", "Dragonfly spawns in the Volcano.\nOnly available at worldgen stage."),
         options = boolean,
         default = true
     },
@@ -111,6 +119,13 @@ configuration_options = {
         default = true
     },
     AddTitle(zh_en("- 配方相关 -", "- The Crafting -")),
+    {
+        name = "nope_gem_ingredients",
+        label = zh_en("移除宝石核心的多配方支持", "Nope Gem Core Ingredients"),
+        hover = zh_en("配方材料会根据世界类型自动判断", "Ingredients are judged by world type automatically."),
+        options = boolean,
+        default = true
+    },
     {
         name = "eyebrella_second_recipe",
         label = zh_en("虎鲨眼作为眼球伞的第二配方", "Tiger Eye as Eyebrella's ingredient"),
