@@ -17,9 +17,7 @@ author = "Civi, Tony"
 
 description = zh_en(
     -- zh
-"[版本: "..version..[[]
-
-更新内容:
+"[版本: " .. version .. "\n\n" .. [[更新内容:
 - 取消宝石核心的多配方支持，改为根据世界类型自动判断配方（默认开启）。
 - 优化了轮刃的动画。
 - 修复了黑曜石长矛放在地上错位的问题。
@@ -28,9 +26,7 @@ description = zh_en(
 
 "让你的岛屿冒险更加丰富！"]],
     -- en
-"[Version: "..version..[[]
-
-Changelog:
+"[Version: " .. version .. "\n\n" .. [[Changelog:
 - Remove alternative ingredients provided by gem core, now ingredients are judged by world type (Default On).
 - Update anim and tex for skin: Spinner.
 - Fix offset issue of Obsidian Spear's idle anim.
@@ -141,7 +137,7 @@ configuration_options = {
     },
     {
         name = "wx78_jellyfishbrain",
-        label = zh_en("睿智帽可以制作机器人模块", "WX78 Modules in Brain of Thought"),
+        label = zh_en("睿智帽可以制作机器人模块", "WX Modules in Brain of Thought"),
         options = boolean,
         default = true
     },
