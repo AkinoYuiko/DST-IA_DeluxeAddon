@@ -5,8 +5,8 @@ table.insert(prefabs, CreatePrefabSkin("cutlass_malbatross", {
     type = "item",
     rarity = "Glassic",
     assets = {
-        Asset( "DYNAMIC_ANIM", "anim/dynamic/cutlass_malbatross.zip" ),
-        Asset( "PKGREF", "anim/dynamic/cutlass_malbatross.dyn" ),
+        Asset("DYNAMIC_ANIM", "anim/dynamic/cutlass_malbatross.zip"),
+        Asset("PKGREF", "anim/dynamic/cutlass_malbatross.dyn"),
     },
     init_fn = function(inst)
         cutlass_init_fn(inst, "cutlass_malbatross")
@@ -19,8 +19,8 @@ table.insert(prefabs, CreatePrefabSkin("double_umbrellahat_summer", {
     type = "item",
     rarity = "Glassic",
     assets = {
-        Asset( "DYNAMIC_ANIM", "anim/dynamic/double_umbrellahat_summer.zip" ),
-        Asset( "PKGREF", "anim/dynamic/double_umbrellahat_summer.dyn" ),
+        Asset("DYNAMIC_ANIM", "anim/dynamic/double_umbrellahat_summer.zip"),
+        Asset("PKGREF", "anim/dynamic/double_umbrellahat_summer.dyn"),
     },
     init_fn = function(inst)
         double_umbrellahat_init_fn(inst, "double_umbrellahat_summer")
@@ -33,8 +33,8 @@ table.insert(prefabs, CreatePrefabSkin("aerodynamichat_shark", {
     type = "item",
     rarity = "Glassic",
     assets = {
-        Asset( "DYNAMIC_ANIM", "anim/dynamic/aerodynamichat_shark.zip" ),
-        Asset( "PKGREF", "anim/dynamic/aerodynamichat_shark.dyn" ),
+        Asset("DYNAMIC_ANIM", "anim/dynamic/aerodynamichat_shark.zip"),
+        Asset("PKGREF", "anim/dynamic/aerodynamichat_shark.dyn"),
     },
     init_fn = function(inst)
         aerodynamichat_init_fn(inst, "aerodynamichat_shark")
@@ -47,8 +47,8 @@ table.insert(prefabs, CreatePrefabSkin("spear_obsidian_spinner", {
     type = "item",
     rarity = "Glassic",
     assets = {
-        Asset( "DYNAMIC_ANIM", "anim/dynamic/spear_obsidian_spinner.zip" ),
-        Asset( "PKGREF", "anim/dynamic/spear_obsidian_spinner.dyn" ),
+        Asset("DYNAMIC_ANIM", "anim/dynamic/spear_obsidian_spinner.zip"),
+        Asset("PKGREF", "anim/dynamic/spear_obsidian_spinner.dyn"),
     },
     init_fn = function(inst)
         spear_obsidian_init_fn(inst, "spear_obsidian_spinner")

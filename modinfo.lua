@@ -17,7 +17,7 @@ author = "Civi, Tony"
 
 description = zh_en(
     -- zh
-"[版本: " .. version .. "\n\n" .. [[更新内容:
+"版本: " .. version .. "\n\n" .. [[更新内容:
 - 调整了部分配方。
 
 - 取消宝石核心的多配方支持，改为根据世界类型自动判断配方（默认开启）。
@@ -28,7 +28,7 @@ description = zh_en(
 
 "让你的岛屿冒险更加丰富！"]],
     -- en
-"[Version: " .. version .. "\n\n" .. [[Changelog:
+"Version: " .. version .. "\n\n" .. [[Changelog:
 - Tweak some recipes.
 
 - Remove alternative ingredients provided by gem core, now ingredients are judged by world type (Default On).
