@@ -105,18 +105,18 @@ env.AddSimPostInit(function()
     if not env.GetModConfigData("nope_gem_ingredients") then return end
     -- anti-nope
     local sw = world_is_sw(TheWorld)
-    local function set_sw_ingredients(recname, ingredients)
-        set_and_hide_ingredients(recname, ingredients, not sw)
-    end
+    -- local function set_sw_ingredients(recname, ingredients)
+    --     set_and_hide_ingredients(recname, ingredients, not sw)
+    -- end
 
-    set_sw_ingredients("bottlelantern",             {Ingredient("ia_messagebottleempty", 1), Ingredient("bioluminescence", 2)})
-    set_sw_ingredients("soil_amender",              {Ingredient("ia_messagebottleempty", 1), Ingredient("seaweed", 1), Ingredient("ash", 1)})
-    set_sw_ingredients("gashat",                    {Ingredient("ia_messagebottleempty", 2), Ingredient("coral", 3), Ingredient("jellyfish", 1)})
-    set_sw_ingredients("boat_lantern",              {Ingredient("ia_messagebottleempty", 1), Ingredient("twigs", 2), Ingredient("fireflies", 1)})
-    set_sw_ingredients("seatrap",                   {Ingredient("palmleaf", 4), Ingredient("ia_messagebottleempty", 3), Ingredient("jellyfish", 1)})
-    set_sw_ingredients("telescope",                 {Ingredient("ia_messagebottleempty", 1), Ingredient("pigskin", 1), Ingredient("goldnugget", 1)})
-    set_sw_ingredients("armor_lifejacket",          {Ingredient("fabric", 2), Ingredient("vine", 2), Ingredient("ia_messagebottleempty", 3)})
-    set_sw_ingredients("buoy",                      {Ingredient("ia_messagebottleempty", 1), Ingredient("bioluminescence", 2), Ingredient("bamboo", 4)})
+    set_ingredients("bottlelantern",                {Ingredient("ia_messagebottleempty", 1), Ingredient("bioluminescence", 2)})
+    set_ingredients("soil_amender",                 {Ingredient("ia_messagebottleempty", 1), Ingredient("seaweed", 1), Ingredient("ash", 1)})
+    set_ingredients("gashat",                       {Ingredient("ia_messagebottleempty", 2), Ingredient("coral", 3), Ingredient("jellyfish", 1)})
+    set_ingredients("boat_lantern",                 {Ingredient("ia_messagebottleempty", 1), Ingredient("twigs", 2), Ingredient("fireflies", 1)})
+    set_ingredients("seatrap",                      {Ingredient("palmleaf", 4), Ingredient("ia_messagebottleempty", 3), Ingredient("jellyfish", 1)})
+    set_ingredients("telescope",                    {Ingredient("ia_messagebottleempty", 1), Ingredient("pigskin", 1), Ingredient("goldnugget", 1)})
+    set_ingredients("armor_lifejacket",             {Ingredient("fabric", 2), Ingredient("vine", 2), Ingredient("ia_messagebottleempty", 3)})
+    set_ingredients("buoy",                         {Ingredient("ia_messagebottleempty", 1), Ingredient("bioluminescence", 2), Ingredient("bamboo", 4)})
 
     set_ingredients("wintersfeastoven",             {Ingredient("cutstone", 1), Ingredient(sw and "limestonenugget" or "marble", 1), Ingredient("log", 1)})
     set_ingredients("wintersfeastoven",             {Ingredient("boards", 1), Ingredient(sw and "fabric" or "beefalowool", 1)})
