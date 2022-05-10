@@ -1,7 +1,5 @@
-local env = env
 local AddRecipe = GlassicAPI.AddRecipe
 local SortAfter = GlassicAPI.RecipeSortAfter
-GLOBAL.setfenv(1, GLOBAL)
 
 AddRecipe("spice_jellyfish", {Ingredient("jellyfish_dead", 2), Ingredient("jellyfish", 1)}, TECH.FOODPROCESSING_ONE, {nounlock = true, numtogive = 2, nochar = true, builder_tag = "professionalchef"})
 SortAfter("spice_jellyfish", "spice_salt")
@@ -9,7 +7,7 @@ SortAfter("spice_jellyfish", "spice_salt")
 AddRecipe("moonglassmachete", {Ingredient("twigs", 2), Ingredient("moonglass", 3)}, TECH.CELESTIAL_THREE, {nounlock = true, nomods = true})
 SortAfter("moonglassmachete", "moonglassaxe")
 
-if env.GetModConfigData("eyebrella_second_recipe") then
+if GetModConfigData("eyebrella_second_recipe") then
     AddRecipePostInit("eyebrellahat", function(recipe)
         local ingredient = recipe:FindAndConvertIngredient("deerclops_eyeball")
         if ingredient then
@@ -18,11 +16,11 @@ if env.GetModConfigData("eyebrella_second_recipe") then
     end)
 end
 
-if env.GetModConfigData("ancient_obsidian_workbench") then
+if GetModConfigData("ancient_obsidian_workbench") then
     GlassicAPI.MergeTechBonus("OBSIDIAN_BENCH", "ANCIENT", 4)
 end
 
-if env.GetModConfigData("wx78_jellyfishbrain") then
+if GetModConfigData("wx78_jellyfishbrain") then
     TECH.LOST.ROBOTMODULECRAFT = 10
 end
 
@@ -96,13 +94,13 @@ local function set_and_hide_ingredients(recname, ingredients, worldfn, ...)
     end
 end
 
-env.AddSimPostInit(function()
+AddSimPostInit(function()
     for _, prefab in ipairs(MOONROCK_TO_OBSIDIAN) do
         set_altar_by_type(prefab, "moonrocknugget", world_is_volcano, set_type("obsidian"))
     end
     set_altar_by_type("alterguardianhatshard", "moonglass", world_is_sw, set_amount(40))
 
-    if not env.GetModConfigData("nope_gem_ingredients") then return end
+    if not GetModConfigData("nope_gem_ingredients") then return end
     -- anti-nope
     local sw = world_is_sw(TheWorld)
     -- local function set_sw_ingredients(recname, ingredients)

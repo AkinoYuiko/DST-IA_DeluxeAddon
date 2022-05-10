@@ -1,5 +1,3 @@
-GLOBAL.setfenv(1, GLOBAL)
-
 local AddNetworkProxy = UpvalueHacker.GetUpvalue(Entity.AddNetwork, "AddNetworkProxy")
 if not AddNetworkProxy then
     AddNetworkProxy = Entity.AddNetwork
@@ -66,3 +64,5 @@ function Prefab._ctor(self, name, fn, ...)
     end
     return prefab_ctor(self, name, fn, ...)
 end
+
+_G.NO_PUDDLE_GROUNDS = NO_PUDDLE_GROUNDS

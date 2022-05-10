@@ -1,6 +1,3 @@
-local AddPrefabPostInitAny = AddPrefabPostInitAny
-GLOBAL.setfenv(1, GLOBAL)
-
 local function edible_buff_postinit(inst)
     if not TheWorld.ismastersim then return end
     if not inst.components.edible then return end

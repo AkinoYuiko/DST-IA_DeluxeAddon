@@ -1,9 +1,5 @@
 if not GetModConfigData("starstuff_octopusking") then return end
 
-local AddPrefabPostInit = AddPrefabPostInit
-GLOBAL.setfenv(1, GLOBAL)
-
-
 local function OnRefuseStarStaff()
     OCTOPUSKING_LOOT.chestloot["yellowstaff"] = nil
 end

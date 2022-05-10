@@ -1,6 +1,3 @@
-local env = env
-GLOBAL.setfenv(1, GLOBAL)
-
 local function oneaten_jellyfish(inst, eater)
     eater:AddDebuff("buff_electricattack", "buff_electricattack")
 end
@@ -15,7 +12,7 @@ IA_SPICES = {
 require("cooking" )
 local spicedfoods = require("spicedfoods")
 local UpvalueUtil = require("upvalueutil")
-local wx78_chargable = env.GetModConfigData("wx78_charge_via_zappy_food") and 1 or nil
+local wx78_chargable = GetModConfigData("wx78_charge_via_zappy_food") and 1 or nil
 
 local SPICES = UpvalueUtil.GetUpvalue(GenerateSpicedFoods, "SPICES")
 if not SPICES then return end
@@ -26,7 +23,7 @@ GenerateSpicedFoods(require("preparedfoods_warly"))
 
 for name, recipe in pairs(spicedfoods) do
     if IA_SPICES[recipe.spice] then
-        AddCookerRecipe("portablespicer", recipe)
+        _G.AddCookerRecipe("portablespicer", recipe)
         if recipe.spice == "SPICE_JELLYFISH" then
             TUNING.WX78_CHARGING_FOODS[name] = wx78_chargable
         end
@@ -48,7 +45,7 @@ for name, recipe in pairs(spicedfoods) do
     end
 end
 for name, recipe in pairs(ia_spiced) do
-    env.AddCookerRecipe("portablespicer", recipe)
+    AddCookerRecipe("portablespicer", recipe)
     if recipe.spice == "SPICE_JELLYFISH" then
         TUNING.WX78_CHARGING_FOODS[name] = wx78_chargable
     end

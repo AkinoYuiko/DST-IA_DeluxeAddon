@@ -1,5 +1,3 @@
-GLOBAL.setfenv(1, GLOBAL)
-
 local function getAnimSuffix(self, percentage)
     if percentage >= self.red_threshold then
         return "_red"

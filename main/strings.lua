@@ -1,7 +1,3 @@
-local MODROOT = MODROOT
-local GetModConfigData = GetModConfigData
-GLOBAL.setfenv(1, GLOBAL)
-
 local strings =
 {
     NAMES =

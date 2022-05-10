@@ -1,8 +1,5 @@
 if not GetModConfigData("dragoonfly") then return end
 
-local AddSimPostInit = AddSimPostInit
-GLOBAL.setfenv(1, GLOBAL)
-
 AddSimPostInit(function()
     local loots = LootTables["dragonfly"]
     if loots then
