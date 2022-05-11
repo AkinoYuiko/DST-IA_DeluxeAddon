@@ -28,7 +28,7 @@ for name, recipe in pairs(spicedfoods) do
     if IA_SPICES[recipe.spice] then
         AddCookerRecipe("portablespicer", recipe)
         if recipe.spice == "SPICE_JELLYFISH" then
-            TUNING.WX78_CHARGING_FOODS[name] = wx78_chargable
+            TUNING.WX78_CHARGING_FOODS[name] = wx78_chargable or TUNING.WX78_CHARGING_FOODS[name]
         end
     end
 end
@@ -50,12 +50,12 @@ end
 for name, recipe in pairs(ia_spiced) do
     env.AddCookerRecipe("portablespicer", recipe)
     if recipe.spice == "SPICE_JELLYFISH" then
-        TUNING.WX78_CHARGING_FOODS[name] = wx78_chargable
+        TUNING.WX78_CHARGING_FOODS[name] = wx78_chargable or TUNING.WX78_CHARGING_FOODS[name]
     end
     IA_PREPAREDFOODS[name] = recipe
 end
 
-TUNING.WX78_CHARGING_FOODS["jellyfish_dead"] = wx78_chargable
+TUNING.WX78_CHARGING_FOODS["jellyfish_dead"] = wx78_chargable or TUNING.WX78_CHARGING_FOODS["jellyfish_dead"]
 ------------------------------------------------
 
 local anim_state_override_symbol = AnimState.OverrideSymbol
