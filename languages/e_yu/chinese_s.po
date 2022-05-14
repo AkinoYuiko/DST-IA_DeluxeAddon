@@ -63,3 +63,8 @@ msgstr "麻痹{food}"
 msgctxt "STRINGS.SKIN_NAMES.cutlass_malbatross"
 msgid ""
 msgstr "鸭嘴剑"
+
+#. STRINGS.SKIN_NAMES.aerodynamichat_tigershark
+msgctxt "STRINGS.SKIN_NAMES.aerodynamichat_tigershark"
+msgid "Tiger Shark"
+msgstr "好大的鱼"

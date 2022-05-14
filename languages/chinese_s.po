@@ -44,6 +44,11 @@ msgctxt "STRINGS.SKIN_NAMES.aerodynamichat_shark"
 msgid "Sharkness"
 msgstr "鲨克妮丝"
 
+#. STRINGS.SKIN_NAMES.aerodynamichat_tigershark
+msgctxt "STRINGS.SKIN_NAMES.aerodynamichat_tigershark"
+msgid "Tiger Shark"
+msgstr "虎纹鲨鱼"
+
 #. STRINGS.SKIN_NAMES.double_umbrellahat_summer
 msgctxt "STRINGS.SKIN_NAMES.double_umbrellahat_summer"
 msgid "Summerella"

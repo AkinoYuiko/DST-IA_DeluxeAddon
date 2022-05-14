@@ -42,6 +42,20 @@ table.insert(prefabs, CreatePrefabSkin("aerodynamichat_shark", {
     skin_tags = {"AERODYNAMICHAT"}
 }))
 
+table.insert(prefabs, CreatePrefabSkin("aerodynamichat_tigershark", {
+    base_prefab = "aerodynamichat",
+    type = "item",
+    rarity = "Glassic",
+    assets = {
+        Asset("DYNAMIC_ANIM", "anim/dynamic/aerodynamichat_tigershark.zip"),
+        Asset("PKGREF", "anim/dynamic/aerodynamichat_tigershark.dyn"),
+    },
+    init_fn = function(inst)
+        aerodynamichat_init_fn(inst, "aerodynamichat_tigershark")
+    end,
+    skin_tags = {"AERODYNAMICHAT"}
+}))
+
 table.insert(prefabs, CreatePrefabSkin("spear_obsidian_spinner", {
     base_prefab = "spear_obsidian",
     type = "item",

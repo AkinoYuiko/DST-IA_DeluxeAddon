@@ -31,6 +31,7 @@ local strings =
         cutlass_malbatross = STRINGS.NAMES.MALBATROSS_BEAK,
         double_umbrellahat_summer = "Summerella",
         aerodynamichat_shark = "Sharkness",
+        aerodynamichat_tigershark = "Tiger Shark",
         spear_obsidian_spinner = "Spinner",
     }
 }

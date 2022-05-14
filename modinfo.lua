@@ -10,25 +10,13 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.9.3"
+version = "1.10"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
-author = "Civi, Tony"
+author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 机器人充能食物采用更高兼容性的写法。
-
-- 调整了部分配方。
-- 取消宝石核心的多配方支持，改为根据世界类型自动判断配方（默认开启）。
-- 优化了轮刃的动画。
-- 修复了黑曜石长矛放在地上错位的问题。
-- 新皮肤：轮刃（黑曜石长矛）
+- 新皮肤：虎纹鲨鱼（流线型帽子，绘图：Jerry）
 ]], [[
-- Make WX78 charging food config compatible with IA Gitlab Ver.
-
-- Tweak some recipes.
-- Remove alternative ingredients provided by gem core, now ingredients are judged by world type (Default On).
-- Update anim and tex for skin: Spinner.
-- Fix offset issue of Obsidian Spear's idle anim.
-- New Skin: Spinner (Obsidian Spear)
+- Add skin: Tiger Shark (Sleek Hat, Art by Jerry)
 ]])
 description = zh_en("版本: ", "Version: ") .. version ..
     zh_en("\n\n更新内容:\n", "\n\nChangelog:\n") .. changelog ..
