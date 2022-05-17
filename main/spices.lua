@@ -14,7 +14,7 @@ IA_SPICES = {
 
 require("cooking" )
 local spicedfoods = require("spicedfoods")
-local UpvalueUtil = require("upvalueutil")
+local UpvalueUtil = GlassicAPI.UpvalueUtil
 local wx78_chargable = env.GetModConfigData("wx78_charge_via_zappy_food") and 1 or nil
 
 local SPICES = UpvalueUtil.GetUpvalue(GenerateSpicedFoods, "SPICES")
