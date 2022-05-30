@@ -13,8 +13,8 @@ local function ia_basic_clear_fn(inst, def_build)
     -- end
 end
 
-cutlass_init_fn = function(inst, skinname)
-    GlassicAPI.BasicInitFn(inst, skinname)
+cutlass_init_fn = function(inst)
+    GlassicAPI.BasicInitFn(inst)
     inst.components.floater:UpdateAnimations("idle_water_malbatross", "idle")
 end
 
@@ -23,24 +23,24 @@ cutlass_clear_fn = function(inst)
     inst.components.floater:UpdateAnimations("idle_water", "idle")
 end
 
-double_umbrellahat_init_fn = function(inst, skinname)
-    GlassicAPI.BasicInitFn(inst, skinname)
-end
+-- double_umbrellahat_init_fn = function(inst, skinname)
+--     GlassicAPI.BasicInitFn(inst, skinname)
+-- end
 
 double_umbrellahat_clear_fn = function(inst)
     ia_basic_clear_fn(inst, "hat_double_umbrella")
 end
 
-aerodynamichat_init_fn = function(inst, skinname)
-    GlassicAPI.BasicInitFn(inst, skinname)
-end
+-- aerodynamichat_init_fn = function(inst, skinname)
+--     GlassicAPI.BasicInitFn(inst, skinname)
+-- end
 
 aerodynamichat_clear_fn = function(inst)
     ia_basic_clear_fn(inst, "hat_aerodynamic")
 end
 
-spear_obsidian_init_fn = function(inst, skinname)
-    GlassicAPI.BasicInitFn(inst, skinname)
+spear_obsidian_init_fn = function(inst)
+    GlassicAPI.BasicInitFn(inst)
     inst.components.floater:UpdateAnimations("spear_water", "idle")
 end
 
