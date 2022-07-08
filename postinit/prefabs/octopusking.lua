@@ -37,22 +37,28 @@ end
 AddPrefabPostInit("octopusking", function(inst)
     if not TheWorld.ismastersim then return end
 
-    local stop_fn = inst.worldstatewatching.startnight[1]
-    inst:StopWatchingWorldState("startnight", stop_fn)
-    inst:WatchWorldState("startnight", function(inst)
-        if TheWorld.state.moonphase == "full" then
-            OnAcceptStarStaff()
-        else
-            stop_fn(inst)
-        end
-    end)
+    local startnight = inst.worldstatewatching.startnight
+    if startnight then
+        local stop_fn = inst.worldstatewatching.startnight[1]
+        inst:StopWatchingWorldState("startnight", stop_fn)
+        inst:WatchWorldState("startnight", function(inst)
+            if TheWorld.state.moonphase == "full" then
+                OnAcceptStarStaff()
+            else
+                stop_fn(inst)
+            end
+        end)
+    end
 
-    local startfn = inst.worldstatewatching.startday[1]
-    inst:StopWatchingWorldState("startday", startfn)
-    inst:WatchWorldState("startday", function(inst)
-        -- OnRefuseStarStaff()
-        StartTrading(inst)
-    end)
+    local startday = inst.worldstatewatching.startday
+    if startday then
+        local startfn = inst.worldstatewatching.startday[1]
+        inst:StopWatchingWorldState("startday", startfn)
+        inst:WatchWorldState("startday", function(inst)
+            -- OnRefuseStarStaff()
+            StartTrading(inst)
+        end)
+    end
 
     local onsave = inst.OnSave
     inst.OnSave = function(inst, data)

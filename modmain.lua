@@ -8,7 +8,7 @@ local mainfiles =
     "recipes",
     "spices",
 
-    "flood",
+    -- "flood",
 }
 
 local postinits =

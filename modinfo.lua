@@ -10,19 +10,15 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.10.4"
+version = "1.10.5"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 修复催长剂起子配方错误的问题。
-
-- 更新适配 Glassic API 3.4
-- 新皮肤：虎纹鲨鱼（流线型帽子，绘图：Jerry）
+- 临时移除水坑重写。
+- 修复章鱼王的崩溃。
 ]], [[
-- Fix mistaken recipe for Growth Formula Starter.
-
-- Update for Glassic API 3.4
-- Add skin: Tiger Shark (Sleek Hat, Art by Jerry)
+- Temporarily revert flooding reworking.
+- Fix crash with Yaarctopus.
 ]])
 description = zh_en("版本: ", "Version: ") .. version ..
     zh_en("\n\n更新内容:\n", "\n\nChangelog:\n") .. changelog ..
