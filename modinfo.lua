@@ -10,13 +10,17 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.10.5"
+version = "1.10.6"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
+- 修复龙蝇生成问题。
+
 - 临时移除水坑重写。
 - 修复章鱼王的崩溃。
 ]], [[
+- Fix issue with Dragonfly generation.
+
 - Temporarily revert flooding reworking.
 - Fix crash with Yaarctopus.
 ]])
