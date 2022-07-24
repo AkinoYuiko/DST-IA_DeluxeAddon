@@ -4,13 +4,18 @@ local StaticLayout = require("map/static_layout")
 local AllLayouts = require("map/layouts").Layouts
 GLOBAL.setfenv(1, GLOBAL)
 
-AllLayouts["VolcanoDragonflyArena"] = StaticLayout.Get("map/static_layouts/volcano_dragonfly")
+AllLayouts["VolcanoDragonflyArena"] = StaticLayout.Get("map/static_layouts/volcano_dragonfly",{
+    start_mask = PLACE_MASK.IGNORE_IMPASSABLE_BARREN_RESERVED,
+	fill_mask = PLACE_MASK.IGNORE_IMPASSABLE_BARREN_RESERVED,
+	layout_position = LAYOUT_POSITION.CENTER,
+	disable_transform = true,
+})
 AllLayouts["VolcanoDragonflyArena"].ground_types = {WORLD_TILES.BRICK_GLOW}
 
 AddLevelPreInit("VOLCANO_LEVEL", function(level)
     level.set_pieces = level.set_pieces or {}
-    level.require = level.require or {}
+    level.required_prefabs = level.required_prefabs or {}
 
     level.set_pieces.VolcanoDragonflyArena = {count = 1, tasks = {"Volcano"}}
-    table.insert(level.require, "dragonfly_spawner")
+    table.insert(level.required_prefabs, "dragonfly_spawner")
 end)
