@@ -12,7 +12,7 @@ AllLayouts["VolcanoDragonflyArena"] = StaticLayout.Get("map/static_layouts/volca
 })
 AllLayouts["VolcanoDragonflyArena"].ground_types = {WORLD_TILES.BRICK_GLOW}
 
-AddLevelPreInit("VOLCANO_LEVEL", function(level)
+AddLevelPreInit("SURVIVAL_VOLCANO_CLASSIC", function(level)
     level.set_pieces = level.set_pieces or {}
     level.required_prefabs = level.required_prefabs or {}
 
