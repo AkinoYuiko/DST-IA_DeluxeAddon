@@ -4,7 +4,8 @@ local AddSimPostInit = AddSimPostInit
 GLOBAL.setfenv(1, GLOBAL)
 
 AddSimPostInit(function()
-    if TheWorld:HasTag("volcnao") then
+    if not TheWorld:HasTag("volcano") then
+        return 
     end
     local loots = LootTables["dragonfly"]
     if loots then
