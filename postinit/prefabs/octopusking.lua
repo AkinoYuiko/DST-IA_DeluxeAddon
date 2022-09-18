@@ -3,14 +3,7 @@ if not GetModConfigData("starstuff_octopusking") then return end
 local AddPrefabPostInit = AddPrefabPostInit
 GLOBAL.setfenv(1, GLOBAL)
 
-
-local function OnRefuseStarStaff()
-    OCTOPUSKING_LOOT.chestloot["yellowstaff"] = nil
-end
-
-local function OnAcceptStarStaff()
-    OCTOPUSKING_LOOT.chestloot["yellowstaff"] = "opalstaff"
-end
+OCTOPUSKING_LOOT.chestloot["yellowstaff"] = "opalstaff"
 
 local function StartTrading(inst)
     if not inst.components.trader.enabled then
@@ -24,51 +17,70 @@ local function StartTrading(inst)
 
         inst.AnimState:PushAnimation("idle", true)
     end
+
+    inst.sleeping = false
 end
 
-local function OnSave(inst, data)
-    data.accept_staff = OCTOPUSKING_LOOT.chestloot["yellowstaff"]
+local function FinishedTrading(inst)
+    inst.components.trader:Disable()
+    inst.AnimState:PlayAnimation("sleep_pre")
+
+    if inst.sleepfn then
+        inst:RemoveEventCallback("animover", inst.sleepfn)
+        inst.sleepfn = nil
+    end
+
+    inst.sleepfn = function(inst)
+        inst.AnimState:PlayAnimation("sleep_loop")
+        inst.SoundEmitter:PlaySound("ia/creatures/octopus_king/sleep")
+    end
+
+    inst:ListenForEvent("animover", inst.sleepfn)
+
+    inst.sleeping = true
 end
 
-local function OnLoad(isnt, data)
-    OCTOPUSKING_LOOT.chestloot["yellowstaff"] = data and data.accept_staff
+local function UpdateMultiplayer(inst)
+    local pos = inst:GetPosition()
+    local ents = TheSim:FindEntities(pos.x, pos.y, pos.z, 40, "player")
+    local shouldsleep = true
+    for i,v in ipairs(ents) do
+        if v.userid ~= nil and inst.tradelist[v.userid] == nil then
+            shouldsleep = false
+        end
+    end
+    if not inst.sleeping and shouldsleep then
+        FinishedTrading(inst)
+    elseif not shouldsleep and inst.sleeping and ( not TheWorld.state.isnight or TheWorld.state.moonphase == "full" ) then
+        StartTrading(inst)
+    end
 end
 
 AddPrefabPostInit("octopusking", function(inst)
     if not TheWorld.ismastersim then return end
+    local _testfn = inst.components.trader and inst.components.trader.test
 
-    local startnight = inst.worldstatewatching.startnight
-    if startnight then
-        local stop_fn = inst.worldstatewatching.startnight[1]
-        inst:StopWatchingWorldState("startnight", stop_fn)
-        inst:WatchWorldState("startnight", function(inst)
-            if TheWorld.state.moonphase == "full" then
-                OnAcceptStarStaff()
+    if _testfn then
+        inst.components.trader:SetAcceptTest(function(_inst, _item, _giver)
+            if _item.prefab == "yellowstaff" and not TheWorld.state.moonphase == "full" then
+                return
             else
-                stop_fn(inst)
+                return _testfn(_inst, _item, _giver)
             end
         end)
     end
 
-    local startday = inst.worldstatewatching.startday
-    if startday then
-        local startfn = inst.worldstatewatching.startday[1]
-        inst:StopWatchingWorldState("startday", startfn)
-        inst:WatchWorldState("startday", function(inst)
-            -- OnRefuseStarStaff()
-            StartTrading(inst)
+    local startnight = inst.worldstatewatching.startnight
+    if startnight then
+        inst:WatchWorldState("startnight", function(inst)
+            if not TheWorld.state.moonphase == "full" then
+                FinishedTrading(inst)
+            end
         end)
     end
 
-    local onsave = inst.OnSave
-    inst.OnSave = function(inst, data)
-        if onsave then onsave(inst, data) end
-        OnSave(inst, data)
-    end
-
-    local onload = inst.OnLoad
-    inst.OnLoad = function(inst, data)
-        if onload then onload(inst, data) end
-        OnLoad(inst, data)
+    if inst._multiplayertask then
+        inst._multiplayertask:Cancel()
+        inst._multiplayertask = inst:DoPeriodicTask(1, UpdateMultiplayer)
     end
 end)
