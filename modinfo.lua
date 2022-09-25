@@ -10,17 +10,19 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.10.8"
+version = "1.10.9"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 修复龙蝇生成问题。
+- 调整了与章鱼王交易星杖的逻辑。
 
+- 修复龙蝇生成问题。
 - 临时移除水坑重写。
 - 修复章鱼王的崩溃。
 ]], [[
-- Fix issue with Dragonfly generation.
+- Tweak code logic when trading with Yaarctopus for Moon Caller's Staff.
 
+- Fix issue with Dragonfly generation.
 - Temporarily revert flooding reworking.
 - Fix crash with Yaarctopus.
 ]])
@@ -88,7 +90,7 @@ configuration_options = {
     {
         name = "starstuff_octopusking",
         label = zh_en("用星杖交易换取月杖", "Star Stuff Trading"),
-        hover = zh_en("月圆时可以与章鱼王交易换取", "Trade with Octopus King, only available during full moon"),
+        hover = zh_en("满月时可以与章鱼王交易换取", "Trade with Octopus King, only available during full moon"),
         options = boolean,
         default = true
     },
