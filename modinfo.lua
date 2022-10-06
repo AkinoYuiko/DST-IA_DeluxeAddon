@@ -10,18 +10,20 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.10.9"
+version = "1.10.10"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 调整了与章鱼王交易星杖的逻辑。
+- 更新模块【移除宝石核心的多配方支持】。
 
+- 调整了与章鱼王交易星杖的逻辑。
 - 修复龙蝇生成问题。
 - 临时移除水坑重写。
 - 修复章鱼王的崩溃。
 ]], [[
-- Tweak code logic when trading with Yaarctopus for Moon Caller's Staff.
+- Update module: Nope Gem Core Ingredients.
 
+- Tweak code logic when trading with Yaarctopus for Moon Caller's Staff.
 - Fix issue with Dragonfly generation.
 - Temporarily revert flooding reworking.
 - Fix crash with Yaarctopus.

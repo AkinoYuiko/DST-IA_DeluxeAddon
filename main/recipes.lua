@@ -166,4 +166,12 @@ env.AddSimPostInit(function()
     set_ingredients("wx78module_maxhunger",         {Ingredient("scandata", 3), Ingredient(sw and "doydoyfeather" or "slurper_pelt", 1), Ingredient("wx78module_maxhunger1", 1)})
     set_ingredients("wx78module_music",             {Ingredient("scandata", 4), sw and Ingredient("seashell", 1) or Ingredient("singingshell_octave3", 1, nil, nil, "singingshell_octave3_3.tex")})
     set_ingredients("wx78module_taser",             {Ingredient("scandata", 5), Ingredient(sw and "jellyfish" or "goatmilk", 1)})
+    -- Wickerbottom
+    set_ingredients("book_light",                   {Ingredient("papyrus", 2), Ingredient(sw and "rainbowjellyfish_dead" or "lightbulb", 2)})
+    set_ingredients("book_fish",                    {Ingredient("papyrus", 2), Ingredient(sw and "roe" or "oceanfishingbobber_ball", 2)})
+    set_ingredients("book_fish",                    {Ingredient("papyrus", 2), Ingredient(sw and "doydoyfeather" or "goose_feather", 2)})
+    set_ingredients("book_moon",                    {Ingredient("papyrus", 2), Ingredient((sw and not env.GetModConfigData("starstuff_octopusking")) and "magic_seal" or "opalpreciousgem", 1), Ingredient("moonbutterflywings", 2)})
+    -- Night Stories
+    set_ingredients("book_wetness",                 {Ingredient("book_rain", 1), Ingredient("book_temperature", 1), Ingredient(sw and "magic_seal" or "malbatross_feather", sw and 1 or 10)})
+
 end)
