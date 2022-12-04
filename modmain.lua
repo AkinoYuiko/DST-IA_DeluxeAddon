@@ -16,6 +16,7 @@ local postinits =
     -- components
     "components/obsidiantool",
     -- prefabs
+    "prefabs/book_toggledownfall",
     "prefabs/dragoonfly",
     "prefabs/glasscutter",
     "prefabs/kraken",
