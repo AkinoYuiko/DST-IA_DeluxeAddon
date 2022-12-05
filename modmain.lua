@@ -18,6 +18,7 @@ local postinits =
     -- prefabs
     "prefabs/book_toggledownfall",
     "prefabs/dragoonfly",
+    "prefabs/fish_farm",
     "prefabs/glasscutter",
     "prefabs/kraken",
     "prefabs/octopusking",

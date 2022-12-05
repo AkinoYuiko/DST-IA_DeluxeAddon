@@ -10,25 +10,13 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.10.11.1"
+version = "1.11"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 修复万圣节药水配方相关的一个小问题。
-
-- 更新模块【移除宝石核心的多配方支持】。
-- 调整了与章鱼王交易星杖的逻辑。
-- 修复龙蝇生成问题。
-- 临时移除水坑重写。
-- 修复章鱼王的崩溃。
+- 新配置：鱼农场不刷狗。
 ]], [[
-- Fix issue for the recipes of Halloween Potions.
-
-- Update module: Nope Gem Core Ingredients.
-- Tweak code logic when trading with Yaarctopus for Moon Caller's Staff.
-- Fix issue with Dragonfly generation.
-- Temporarily revert flooding reworking.
-- Fix crash with Yaarctopus.
+- New config: Ban predators for fish farm.
 ]])
 description = zh_en("版本: ", "Version: ") .. version ..
     zh_en("\n\n更新内容:\n", "\n\nChangelog:\n") .. changelog ..
@@ -101,6 +89,12 @@ configuration_options = {
     {
         name = "wet_quacken",
         label = zh_en("海妖常驻潮湿", "Quacken always wet"),
+        options = boolean,
+        default = true
+    },
+    {
+        name = "fish_farm_no_predators",
+        label = zh_en("鱼农场不刷狗", "Ban predators for fish farm"),
         options = boolean,
         default = true
     },
