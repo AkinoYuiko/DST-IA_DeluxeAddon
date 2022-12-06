@@ -24,8 +24,8 @@ local strings =
             DESCRIBE =
             {
                 BOAT_OBSIDIAN = {
-                    GENERIC = "We need something to boost it.",
-                    ACTIVE = "An amazing volcanic machine!",
+                    GENERIC = "I need something to boost it.",
+                    ACTIVE = "Amazing volcanic science!",
                 },
                 SPICE_JELLYFISH = "Zap left.",
                 MOONGLASSMACHETE = STRINGS.CHARACTERS.GENERIC.DESCRIBE.MOONGLASSAXE,
