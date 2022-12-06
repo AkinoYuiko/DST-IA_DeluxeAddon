@@ -9,6 +9,19 @@ SortAfter("spice_jellyfish", "spice_salt")
 AddRecipe("moonglassmachete", {Ingredient("twigs", 2), Ingredient("moonglass", 3)}, TECH.CELESTIAL_THREE, {nounlock = true, nomods = true})
 SortAfter("moonglassmachete", "moonglassaxe")
 
+local function AquaticRecipe(name, data)
+    if AllRecipes[name] then
+        --data = {distance=, shore_distance=, platform_distance=, shore_buffer_max=, shore_buffer_min=, platform_buffer_max=, platform_buffer_min=, aquatic_buffer_min=, noshore=}
+        data = data or {}
+        data.platform_buffer_max = data.platform_buffer_max or (data.platform_distance and math.sqrt(data.platform_distance)) or (data.distance and math.sqrt(data.distance)) or nil
+        data.shore_buffer_max = data.shore_buffer_max or (data.shore_distance and ((data.shore_distance+1)/2)) or nil
+        AllRecipes[name].aquatic = data
+    end
+end
+
+AddRecipe("boat_obsidian", {Ingredient("obsidian", 4), Ingredient("boards", 6), Ingredient("rope", 3)}, TECH.OBSIDIAN_TWO, {nounlock = true, placer="boat_encrusted_placer"}, {"SEAFARING"})
+AquaticRecipe("boat_obsidian", {distance=4, platform_buffer_min=2})
+
 if env.GetModConfigData("eyebrella_second_recipe") then
     AddRecipePostInit("eyebrellahat", function(recipe)
         local ingredient = recipe:FindAndConvertIngredient("deerclops_eyeball")

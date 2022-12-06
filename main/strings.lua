@@ -6,12 +6,14 @@ local strings =
 {
     NAMES =
     {
+        BOAT_OBSIDIAN = "Obsidian Boat",
         SPICE_JELLYFISH = "Zappy Powder",
         SPICE_JELLYFISH_FOOD = "Zappy {food}",
         MOONGLASSMACHETE = "Moon Glass Machete",
     },
     RECIPE_DESC =
     {
+        BOAT_OBSIDIAN = "A boat fueled with special material.",
         SPICE_JELLYFISH = "The feeling of volt jelly.",
         MOONGLASSMACHETE = STRINGS.RECIPE_DESC.MOONGLASSAXE,
     },
@@ -21,6 +23,10 @@ local strings =
         {
             DESCRIBE =
             {
+                BOAT_OBSIDIAN = {
+                    GENERIC = "We need something to boost it.",
+                    ACTIVE = "An amazing volcanic machine!",
+                },
                 SPICE_JELLYFISH = "Zap left.",
                 MOONGLASSMACHETE = STRINGS.CHARACTERS.GENERIC.DESCRIBE.MOONGLASSAXE,
             }

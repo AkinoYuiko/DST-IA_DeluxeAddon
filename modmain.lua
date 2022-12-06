@@ -5,6 +5,8 @@ local mainfiles =
     "strings",
     "prefabskin",
 
+    "actions",
+
     "recipes",
     "spices",
 
@@ -18,6 +20,7 @@ local postinits =
     -- prefabs
     "prefabs/book_toggledownfall",
     "prefabs/dragoonfly",
+    "prefabs/dragoonheart",
     "prefabs/fish_farm",
     "prefabs/glasscutter",
     "prefabs/kraken",
