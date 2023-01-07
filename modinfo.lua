@@ -10,16 +10,18 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.11.1"
+version = "1.11.2"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 修复了一处拼写错误。
+- 为海难的相关火堆禁用木炭生成。
 
+- 修复了一处拼写错误。
 - 新配置：鱼农场不刷狗。
 ]], [[
-- Fix a typo.
+- Disable charcoal for IA's firepits.
 
+- Fix a typo.
 - New config: Ban predators for fish farm.
 ]])
 description = zh_en("版本: ", "Version: ") .. version ..
