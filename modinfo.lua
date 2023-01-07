@@ -10,17 +10,19 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.11.2"
+version = "1.11.3"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 为海难的相关火堆禁用木炭生成。
+- 新增一种石果配方。
 
+- 为海难的相关火堆禁用木炭生成。
 - 修复了一处拼写错误。
 - 新配置：鱼农场不刷狗。
 ]], [[
-- Disable charcoal for IA's firepits.
+- Add recipe for the Stone Fruit.
 
+- Disable charcoal for IA's firepits.
 - Fix a typo.
 - New config: Ban predators for fish farm.
 ]])

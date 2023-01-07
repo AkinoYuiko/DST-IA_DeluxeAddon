@@ -9,6 +9,8 @@ SortAfter("spice_jellyfish", "spice_salt")
 AddRecipe("moonglassmachete", {Ingredient("twigs", 2), Ingredient("moonglass", 3)}, TECH.CELESTIAL_THREE, {nounlock = true, nomods = true})
 SortAfter("moonglassmachete", "moonglassaxe")
 
+AddRecipe("rock_avocado_fruit", {Ingredient("rocks", 1), Ingredient("seeds", 1)}, TECH.CELESTIAL_ONE, {nounlock = true, nomods = true})
+
 local function AquaticRecipe(name, data)
     if AllRecipes[name] then
         --data = {distance=, shore_distance=, platform_distance=, shore_buffer_max=, shore_buffer_min=, platform_buffer_max=, platform_buffer_min=, aquatic_buffer_min=, noshore=}
