@@ -21,6 +21,7 @@ local postinits =
     "prefabs/book_toggledownfall",
     "prefabs/dragoonfly",
     "prefabs/dragoonheart",
+    "prefabs/firepit",
     "prefabs/fish_farm",
     "prefabs/glasscutter",
     "prefabs/kraken",
