@@ -10,7 +10,8 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.11.3"
+version = "1.11.3.2"
+version_compatible = "1.11.3.1"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[

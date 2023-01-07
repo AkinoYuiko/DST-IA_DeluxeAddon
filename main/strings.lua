@@ -16,6 +16,7 @@ local strings =
         BOAT_OBSIDIAN = "A boat fueled with special material.",
         SPICE_JELLYFISH = "The feeling of volt jelly.",
         MOONGLASSMACHETE = STRINGS.RECIPE_DESC.MOONGLASSAXE,
+        ROCK_AVOCADO_FRUIT = "The strength of the moon makes it reborn."
     },
     CHARACTERS =
     {

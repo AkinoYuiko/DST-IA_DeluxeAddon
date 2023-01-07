@@ -59,6 +59,11 @@ msgctxt "STRINGS.RECIPE_DESC.SPICE_JELLYFISH"
 msgid "The feeling of volt jelly."
 msgstr "酥酥麻麻的感觉。"
 
+#. STRINGS.RECIPE_DESC.ROCK_AVOCADO_FRUIT
+msgctxt "STRINGS.RECIPE_DESC.ROCK_AVOCADO_FRUIT"
+msgid "The strength of the moon makes it reborn."
+msgstr "月之力使它重生。"
+
 #. STRINGS.SKIN_NAMES.aerodynamichat_shark
 msgctxt "STRINGS.SKIN_NAMES.aerodynamichat_shark"
 msgid "Sharkness"

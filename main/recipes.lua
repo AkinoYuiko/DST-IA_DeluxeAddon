@@ -9,7 +9,7 @@ SortAfter("spice_jellyfish", "spice_salt")
 AddRecipe("moonglassmachete", {Ingredient("twigs", 2), Ingredient("moonglass", 3)}, TECH.CELESTIAL_THREE, {nounlock = true, nomods = true})
 SortAfter("moonglassmachete", "moonglassaxe")
 
-AddRecipe("rock_avocado_fruit", {Ingredient("rocks", 1), Ingredient("seeds", 1)}, TECH.CELESTIAL_ONE, {nounlock = true, nomods = true})
+AddRecipe("rock_avocado_fruit", {Ingredient("rocks", 1), Ingredient("seeds", 1)}, TECH.CELESTIAL_ONE, {nounlock = true, nomods = true, image = "rock_avocado_fruit_rockhard.tex"})
 
 local function AquaticRecipe(name, data)
     if AllRecipes[name] then

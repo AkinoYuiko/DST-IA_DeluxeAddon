@@ -25,6 +25,7 @@ local postinits =
     "prefabs/glasscutter",
     "prefabs/kraken",
     "prefabs/octopusking",
+    "prefabs/rocks",
 
     -- root
     "buff_oneaten",
