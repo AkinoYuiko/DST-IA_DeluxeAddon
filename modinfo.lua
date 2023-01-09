@@ -10,12 +10,16 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.12"
+version = "1.12.1"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
+- 新功能：满月时交换月亮碎片（可配置，默认开启）。
+
 - 新增配方：远古织影者三件套（可配置，默认开启）。
 ]], [[
+- New function: Trade for Moon Glass during full moon instead of Dubloon (configurable, default ON).
+
 - New recipes for loots from Ancient Fuelweaver (configurable, default ON).
 ]])
 description = zh_en("版本: ", "Version: ") .. version ..
@@ -83,6 +87,13 @@ configuration_options = {
         name = "starstuff_octopusking",
         label = zh_en("用星杖交易换取月杖", "Star Stuff Trading"),
         hover = zh_en("满月时可以与章鱼王交易换取", "Trade with Octopus King, only available during full moon"),
+        options = boolean,
+        default = true
+    },
+    {
+        name = "moonglass_octopusking",
+        label = zh_en("满月时交易月亮碎片", "Moon Glass Trading"),
+        hover = zh_en("满月时可以与章鱼王交易换取月亮碎片而非金币", "Trade for Moon Glass with Octopus King during full moon instead of Dubloon"),
         options = boolean,
         default = true
     },

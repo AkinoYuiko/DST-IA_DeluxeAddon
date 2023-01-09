@@ -7,7 +7,7 @@ AddPrefabPostInit("octopusking", function(inst)
     if not TheWorld.ismastersim then return end
 
     local accept_test_fn = inst.components.trader and inst.components.trader.test
-    if accept_test_fn ~= nil then
+    if accept_test_fn then
         inst.components.trader:SetAcceptTest(function(inst, item, giver)
             if item.prefab == "yellowstaff" and TheWorld.state.moonphase ~= "full" then
                 return false
