@@ -7,9 +7,9 @@ local Container_GiveItem = Container.GiveItem
 function Container:GiveItem(item, ...)
     local inst = self.inst
     if inst.prefab == "octopuschest" and item.prefab == "dubloon" and TheWorld.state.moonphase == "full" then
-        Container_GiveItem(self, SpawnPrefab("moonglass"), ...)
         item:Remove()
+        return Container_GiveItem(self, SpawnPrefab("moonglass"), ...)
     else
-        Container_GiveItem(self, item, ...)
+        return Container_GiveItem(self, item, ...)
     end
 end
