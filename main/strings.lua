@@ -16,7 +16,10 @@ local strings =
         BOAT_OBSIDIAN = "A boat fueled with special material.",
         SPICE_JELLYFISH = "The feeling of volt jelly.",
         MOONGLASSMACHETE = STRINGS.RECIPE_DESC.MOONGLASSAXE,
-        ROCK_AVOCADO_FRUIT = "The strength of the moon makes it reborn."
+        ROCK_AVOCADO_FRUIT = "The strength of the moon makes it reborn.",
+        ARMORSKELETON = STRINGS.CHARACTERS.GENERIC.DESCRIBE.ARMORSKELETON,
+        SKELETONHAT = STRINGS.CHARACTERS.GENERIC.DESCRIBE.SKELETONHAT,
+        THURIBLE = STRINGS.CHARACTERS.GENERIC.DESCRIBE.THURIBLE,
     },
     CHARACTERS =
     {

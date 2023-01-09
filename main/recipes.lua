@@ -189,4 +189,9 @@ env.AddSimPostInit(function()
     -- Night Stories
     set_ingredients("book_wetness",                 {Ingredient("book_rain", 1), Ingredient("book_temperature", 1), Ingredient(sw and "magic_seal" or "malbatross_feather", sw and 1 or 10)})
 
+    if sw and env.GetModConfigData("craftable_atrium_loots") then
+        AddRecipe("armorskeleton", {Ingredient("magic_seal", 1), Ingredient("boneshard", 10), Ingredient("nightmarefuel", 6)}, TECH.LOST, {nounlock = true, nomods = true, hidden = true}, {"ARMOUR"})
+        AddRecipe("skeletonhat", {Ingredient("magic_seal", 1), Ingredient("boneshard", 10), Ingredient("nightmarefuel", 4)}, TECH.LOST, {nounlock = true, nomods = true, hidden = true}, {"ARMOUR"})
+        AddRecipe("thurible", {Ingredient("magic_seal", 1), Ingredient("cutstone", 2), Ingredient("nightmarefuel", 6), Ingredient("ash", 1)}, TECH.LOST, {nounlock = true, nomods = true, hidden = true}, {"TOOLS"})
+    end
 end)

@@ -10,24 +10,13 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.11.4"
-version_compatible = "1.11.3.1"
+version = "1.12"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 修复一个文件未加载的问题。
-
-- 新增一种石果配方。
-- 为海难的相关火堆禁用木炭生成。
-- 修复了一处拼写错误。
-- 新配置：鱼农场不刷狗。
+- 新增配方：远古织影者三件套（可配置，默认开启）。
 ]], [[
-- Fix issue for a file not loaded.
-
-- Add recipe for the Stone Fruit.
-- Disable charcoal for IA's firepits.
-- Fix a typo.
-- New config: Ban predators for fish farm.
+- New recipes for loots from Ancient Fuelweaver (configurable, default ON).
 ]])
 description = zh_en("版本: ", "Version: ") .. version ..
     zh_en("\n\n更新内容:\n", "\n\nChangelog:\n") .. changelog ..
@@ -140,6 +129,13 @@ configuration_options = {
     {
         name = "wx78_jellyfishbrain",
         label = zh_en("睿智帽可以制作机器人模块", "WX Modules in Brain of Thought"),
+        options = boolean,
+        default = true
+    },
+    {
+        name = "craftable_atrium_loots",
+        label = zh_en("睿智帽可以制作骨三件套", "Craftable Atrium Loots"),
+        hover = zh_en("远古织影者的战利品三件套可以在睿智帽里制作", "Loots from Ancient Fuelweaver can be crafted via Brain of Thought."),
         options = boolean,
         default = true
     },
