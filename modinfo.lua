@@ -10,17 +10,19 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.12.2"
+version = "1.12.3"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 修复一处崩溃。
+- 修复一处代码错误。
 
+- 修复一处崩溃。
 - 新功能：满月时交换月亮碎片（可配置，默认开启）。
 - 新增配方：远古织影者三件套（可配置，默认开启）。
 ]], [[
-- Fix a crash.
+- Fix a typo.
 
+- Fix a crash.
 - New function: Trade for Moon Glass during full moon instead of Dubloon (configurable, default ON).
 - New recipes for loots from Ancient Fuelweaver (configurable, default ON).
 ]])

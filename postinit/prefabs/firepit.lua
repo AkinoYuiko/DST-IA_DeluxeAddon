@@ -3,7 +3,8 @@ GLOBAL.setfenv(1, GLOBAL)
 
 local function fn(inst)
     if not TheWorld.ismastersim then return end
-    inst.disable_charcoal = false
+
+    inst.disable_charcoal = true
 end
 
 local disable_charcoal_list =
