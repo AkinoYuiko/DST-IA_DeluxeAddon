@@ -321,7 +321,7 @@ if _ismastersim then
         end
         local world_x, _, world_z = self:FloodPointToWorldPos(x, z)
         local ground = _map:GetTileAtPoint(world_x, 0, world_z)
-        if ground == GROUND.IMPASSABLE or ground == GROUND.INVALID or not IsLand(ground) then
+        if ground == WORLD_TILES.IMPASSABLE or ground == WORLD_TILES.INVALID or not IsLand(ground) then
             return false
         end
         if spawning then
