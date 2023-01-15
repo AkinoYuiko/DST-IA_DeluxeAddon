@@ -452,8 +452,8 @@ end
 -- 	_maxTide = _moontideheights[phase] or 0
 -- end
 
-local precipitation_islandchanged = _ismastersim and function(src, bool)
-	_israining = bool
+local precipitation_islandchanged = _ismastersim and function(src, precip_type)
+    _israining = precip_type ~= "none"
 end
 
 local springlength = _ismastersim and function(src, length)
