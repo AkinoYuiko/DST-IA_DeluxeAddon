@@ -10,10 +10,11 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.12.6"
+version = "1.12.7"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
+- 修复水坑在没有雨的时候不消
 - 修复水坑重做崩溃
 - 重新启用水坑重做
 
@@ -24,6 +25,7 @@ changelog = zh_en([[
 - 新功能：满月时交换月亮碎片（可配置，默认开启）。
 - 新增配方：远古织影者三件套（可配置，默认开启）。
 ]], [[
+- Fix puddle doesn't disappear when not raining
 - Fix a crash for flooding rework
 - Re-enable flooding rework
 
