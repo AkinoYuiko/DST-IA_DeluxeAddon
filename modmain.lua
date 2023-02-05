@@ -7,6 +7,7 @@ local mainfiles =
 
     "actions",
     "containers",
+    "writeables",
 
     "recipes",
     "spices",
