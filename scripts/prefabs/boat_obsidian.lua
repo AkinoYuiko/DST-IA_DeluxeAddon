@@ -372,7 +372,7 @@ local function obsidianboatfn()
     inst.components.inspectable.getstatus = get_status
 
     -- inst.components.container:WidgetSetup("boat_encrusted")
-    inst.components.container:WidgetSetup("boat_woodlegs")
+    inst.components.container:WidgetSetup("boat_obsidian")
 
     inst.components.boathealth:SetHealth(TUNING.OBSIDIANBOAT_HEALTH, TUNING.OBSIDIANBOAT_PERISHTIME)
     inst.components.boathealth.leakinghealth = TUNING.OBSIDIANBOAT_LEAKING_HEALTH

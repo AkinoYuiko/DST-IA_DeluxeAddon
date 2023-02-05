@@ -6,6 +6,7 @@ local mainfiles =
     "prefabskin",
 
     "actions",
+    "containers",
 
     "recipes",
     "spices",

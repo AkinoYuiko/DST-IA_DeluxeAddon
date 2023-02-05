@@ -10,12 +10,16 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.13"
+version = "1.13.1"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
+- 修复一处崩溃。
+
 - 新道具【黑曜石船】：使用龙心作为燃料的奇怪的船。
 ]], [[
+- Fix a crash on dedicated servers.
+
 - New Item "Obsidian Boat": consumes Dragoon Heart as fuel.
 ]])
 description = zh_en("版本: ", "Version: ") .. version ..
