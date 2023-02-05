@@ -21,8 +21,9 @@ local function AquaticRecipe(name, data)
     end
 end
 
--- AddRecipe("boat_obsidian", {Ingredient("obsidian", 4), Ingredient("boards", 6), Ingredient("rope", 3)}, TECH.OBSIDIAN_TWO, {nounlock = true, placer="boat_encrusted_placer"}, {"SEAFARING"})
--- AquaticRecipe("boat_obsidian", {distance=4, platform_buffer_min=2})
+AddRecipe("boat_obsidian", {Ingredient("obsidian", 4), Ingredient("boards", 6), Ingredient("rope", 3)}, TECH.OBSIDIAN_TWO, {nounlock = true, placer="boat_obsidian_placer"}, {"SEAFARING"})
+AquaticRecipe("boat_obsidian", {distance=4, platform_buffer_min=2})
+SortAfter("boat_obsidian", "boat_woodlegs")
 
 if env.GetModConfigData("eyebrella_second_recipe") then
     AddRecipePostInit("eyebrellahat", function(recipe)

@@ -1,6 +1,6 @@
 local obsidianboatassets = {
     Asset("ANIM", "anim/rowboat_basic.zip"),
-    Asset("ANIM", "anim/pirate_boat_build.zip"),
+    Asset("ANIM", "anim/rowboat_obsidian_build.zip"),
     Asset("ANIM", "anim/rowboat_idles.zip"),
     Asset("ANIM", "anim/rowboat_paddle.zip"),
     Asset("ANIM", "anim/rowboat_trawl.zip"),
@@ -20,12 +20,13 @@ local prefabs = {
     "boat_hit_fx_rowboat",
     "boat_hit_fx_cargoboat",
     "boat_hit_fx_armoured",
-    "flotsam_armoured",
-    "flotsam_bamboo",
-    "flotsam_cargo",
-    "flotsam_lograft",
+    -- "flotsam_armoured",
+    -- "flotsam_bamboo",
+    -- "flotsam_cargo",
+    -- "flotsam_lograft",
     "flotsam_rowboat",
-    "flotsam_surfboard",
+    "firepit_firebird_puff_fx",
+    -- "flotsam_surfboard",
 }
 
 local function sink(inst)
@@ -321,6 +322,14 @@ local function EquipSail(inst)
         sailitem:Remove()
     end
     inst.components.container:Equip(SpawnPrefab("sail_obsidian"))
+    inst.SoundEmitter:PlaySound("dontstarve/common/fireAddFuel")
+
+    local fx = SpawnPrefab("firepit_firebird_puff_fx")
+    local scale = 0.6
+    fx.Transform:SetScale(scale, scale, scale)
+    fx.entity:SetParent(inst.entity)
+    fx.level:set(3)
+
 end
 
 local function get_status(inst)
@@ -328,13 +337,24 @@ local function get_status(inst)
     return sailitem and sailitem.prefab == "sail_obsidian" and "ACTIVE"
 end
 
+local function update_colour(inst)
+    if get_status(inst) == "ACTIVE" then
+        local cc = 1
+        inst.AnimState:SetMultColour(cc, cc, cc, 1)
+    else
+        local cc = 0.4
+        inst.AnimState:SetMultColour(cc, cc, cc, 1)
+    end
+end
+
 local function obsidianboatfn()
     local inst = common()
 
     inst.AnimState:SetBank("rowboat")
-    inst.AnimState:SetBuild("rowboat_encrusted_build")
+    inst.AnimState:SetBuild("rowboat_obsidian_build")
     inst.AnimState:PlayAnimation("run_loop", true)
-    inst.MiniMapEntity:SetIcon("boat_encrusted.tex")
+    inst.MiniMapEntity:SetIcon("boat_obsidian.tex")
+    -- inst.AnimState:SetMultColour(0.4, 0.4, 0.4, 1)
 
     inst:AddTag("obsidianboat")
 
@@ -384,10 +404,13 @@ local function obsidianboatfn()
     --         inst.components.container:Equip(cannon)
     --     end
     -- end)
+    -- inst:ListenForEvent("itemget", update_colour)
+    -- inst:ListenForEvent("itemlose", update_colour)
+    inst:DoPeriodicTask(FRAMES, update_colour)
 
     return inst
 end
 
 return Prefab("boat_obsidian", obsidianboatfn, obsidianboatassets, prefabs),
 --the 2 is offset for controller users (Bullkelp from basegame also uses 2)
-MakePlacer("boat_obsidian_placer", "rowboat", "pirate_boat_build", "run_loop", nil, nil, nil, nil, nil, nil, nil, 2)
+MakePlacer("boat_obsidian_placer", "rowboat", "rowboat_obsidian_build", "run_loop", nil, nil, nil, nil, nil, nil, nil, 2)
