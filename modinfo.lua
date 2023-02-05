@@ -10,31 +10,13 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.12.7"
+version = "1.13"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 修复水坑在没有雨的时候不消
-- 修复水坑重做崩溃
-- 重新启用水坑重做
-
-- 调整远古织影者三件套配方为可搜索。
-
-- 修复一处代码错误。
-- 修复一处崩溃。
-- 新功能：满月时交换月亮碎片（可配置，默认开启）。
-- 新增配方：远古织影者三件套（可配置，默认开启）。
+- 新道具【黑曜石船】：使用龙心作为燃料的奇怪的船。
 ]], [[
-- Fix puddle doesn't disappear when not raining
-- Fix a crash for flooding rework
-- Re-enable flooding rework
-
-- Make recipes for for loots from Ancient Fuelweaver available in search box.
-
-- Fix a typo.
-- Fix a crash.
-- New function: Trade for Moon Glass during full moon instead of Dubloon (configurable, default ON).
-- New recipes for loots from Ancient Fuelweaver (configurable, default ON).
+- New Item "Obsidian Boat": consumes Dragoon Heart as fuel.
 ]])
 description = zh_en("版本: ", "Version: ") .. version ..
     zh_en("\n\n更新内容:\n", "\n\nChangelog:\n") .. changelog ..
