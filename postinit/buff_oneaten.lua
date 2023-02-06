@@ -1,6 +1,14 @@
 local AddPrefabPostInitAny = AddPrefabPostInitAny
 GLOBAL.setfenv(1, GLOBAL)
 
+local function get_level_mult(inst)
+    local mult = 1
+    if inst and inst.prefab == "civi" then
+        mult = 1 + inst.level * 0.25
+    end
+    return mult
+end
+
 local function edible_buff_postinit(inst)
     if not TheWorld.ismastersim then return end
     if not inst.components.edible then return end
@@ -13,7 +21,8 @@ local function edible_buff_postinit(inst)
         edible.oneaten = function(inst, eater)
             if _oneaten then _oneaten(inst, eater) end
             if eater and eater.components.locomotor then
-                eater.components.locomotor:SetExternalSpeedAdder(eater, "CAFFEINE", edible.caffeinedelta, edible.caffeineduration)
+                local level_mult = get_level_mult(eater)
+                eater.components.locomotor:SetExternalSpeedAdder(eater, "CAFFEINE", edible.caffeinedelta, edible.caffeineduration * level_mult)
             end
         end
     end
@@ -25,7 +34,8 @@ local function edible_buff_postinit(inst)
         edible.oneaten = function(inst, eater)
             if _oneaten then _oneaten(inst, eater) end
             if eater and eater.components.locomotor then
-                eater.components.locomotor:SetExternalSpeedAdder(eater, "SURF", edible.surferdelta, edible.surferduration)
+                local level_mult = get_level_mult(eater)
+                eater.components.locomotor:SetExternalSpeedAdder(eater, "SURF", edible.surferdelta, edible.surferduration * level_mult)
             end
         end
     end
@@ -37,7 +47,8 @@ local function edible_buff_postinit(inst)
         edible.oneaten = function(inst, eater)
             if _oneaten then _oneaten(inst, eater) end
             if eater and eater.components.locomotor then
-                eater.components.locomotor:SetExternalSpeedAdder(eater, "AUTODRY", edible.autodrydelta, edible.autodryduration)
+                local level_mult = get_level_mult(eater)
+                eater.components.locomotor:SetExternalSpeedAdder(eater, "AUTODRY", edible.autodrydelta, edible.autodryduration * level_mult)
             end
         end
     end

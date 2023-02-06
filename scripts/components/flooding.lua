@@ -321,7 +321,7 @@ if _ismastersim then
         end
         local world_x, _, world_z = self:FloodPointToWorldPos(x, z)
         local ground = _map:GetTileAtPoint(world_x, 0, world_z)
-        if ground == GROUND.IMPASSABLE or ground == GROUND.INVALID or not IsLand(ground) then
+        if ground == WORLD_TILES.IMPASSABLE or ground == WORLD_TILES.INVALID or not IsLand(ground) then
             return false
         end
         if spawning then
@@ -452,8 +452,8 @@ end
 --     _maxTide = _moontideheights[phase] or 0
 -- end
 
-local precipitation_islandchanged = _ismastersim and function(src, bool)
-    _israining = bool
+local precipitation_islandchanged = _ismastersim and function(src, precip_type)
+    _israining = precip_type ~= "none"
 end
 
 local springlength = _ismastersim and function(src, length)

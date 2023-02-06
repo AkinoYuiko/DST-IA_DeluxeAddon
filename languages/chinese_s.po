@@ -14,10 +14,30 @@ msgstr ""
 "POT Version: 2.0\n"
 "X-Generator: Poedit 3.0.1\n"
 
+#. STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOAT_OBSIDIAN.GENERIC
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOAT_OBSIDIAN.GENERIC"
+msgid "I need something to boost it."
+msgstr "我需要用点什么东西启动它。"
+
+#. STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOAT_OBSIDIAN.ACTIVE
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.BOAT_OBSIDIAN.ACTIVE"
+msgid "Amazing volcanic science!"
+msgstr "令人惊叹的火山科技！"
+
 #. STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH
 msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.SPICE_JELLYFISH"
 msgid "Zap left."
 msgstr "余电未消。"
+
+#. STRINGS.NAMES.BOAT_OBSIDIAN
+msgctxt "STRINGS.NAMES.BOAT_OBSIDIAN"
+msgid "Obsidian Boat"
+msgstr "黑曜石船"
+
+#. STRINGS.RECIPE_DESC.BOAT_OBSIDIAN
+msgctxt "STRINGS.RECIPE_DESC.BOAT_OBSIDIAN"
+msgid "Obsidian Boat"
+msgstr "一艘使用奇怪燃料的船。"
 
 #. STRINGS.NAMES.MOONGLASSMACHETE
 msgctxt "STRINGS.NAMES.MOONGLASSMACHETE"
@@ -38,6 +58,11 @@ msgstr "电{food}"
 msgctxt "STRINGS.RECIPE_DESC.SPICE_JELLYFISH"
 msgid "The feeling of volt jelly."
 msgstr "酥酥麻麻的感觉。"
+
+#. STRINGS.RECIPE_DESC.ROCK_AVOCADO_FRUIT
+msgctxt "STRINGS.RECIPE_DESC.ROCK_AVOCADO_FRUIT"
+msgid "The strength of the moon makes it reborn."
+msgstr "月之力使它重生。"
 
 #. STRINGS.SKIN_NAMES.aerodynamichat_shark
 msgctxt "STRINGS.SKIN_NAMES.aerodynamichat_shark"

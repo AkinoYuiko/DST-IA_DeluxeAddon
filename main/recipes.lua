@@ -9,6 +9,22 @@ SortAfter("spice_jellyfish", "spice_salt")
 AddRecipe("moonglassmachete", {Ingredient("twigs", 2), Ingredient("moonglass", 3)}, TECH.CELESTIAL_THREE, {nounlock = true, nomods = true})
 SortAfter("moonglassmachete", "moonglassaxe")
 
+AddRecipe("rock_avocado_fruit", {Ingredient("rocks", 1), Ingredient("seeds", 1)}, TECH.CELESTIAL_ONE, {nounlock = true, nomods = true, image = "rock_avocado_fruit_rockhard.tex"})
+
+local function AquaticRecipe(name, data)
+    if AllRecipes[name] then
+        --data = {distance=, shore_distance=, platform_distance=, shore_buffer_max=, shore_buffer_min=, platform_buffer_max=, platform_buffer_min=, aquatic_buffer_min=, noshore=}
+        data = data or {}
+        data.platform_buffer_max = data.platform_buffer_max or (data.platform_distance and math.sqrt(data.platform_distance)) or (data.distance and math.sqrt(data.distance)) or nil
+        data.shore_buffer_max = data.shore_buffer_max or (data.shore_distance and ((data.shore_distance+1)/2)) or nil
+        AllRecipes[name].aquatic = data
+    end
+end
+
+AddRecipe("boat_obsidian", {Ingredient("obsidian", 4), Ingredient("boards", 6), Ingredient("rope", 3)}, TECH.OBSIDIAN_TWO, {nounlock = true, placer="boat_obsidian_placer"}, {"SEAFARING"})
+AquaticRecipe("boat_obsidian", {distance=4, platform_buffer_min=2})
+SortAfter("boat_obsidian", "boat_woodlegs")
+
 if env.GetModConfigData("eyebrella_second_recipe") then
     AddRecipePostInit("eyebrellahat", function(recipe)
         local ingredient = recipe:FindAndConvertIngredient("deerclops_eyeball")
@@ -169,9 +185,14 @@ env.AddSimPostInit(function()
     -- Wickerbottom
     set_ingredients("book_light",                   {Ingredient("papyrus", 2), Ingredient(sw and "rainbowjellyfish_dead" or "lightbulb", 2)})
     set_ingredients("book_fish",                    {Ingredient("papyrus", 2), Ingredient(sw and "roe" or "oceanfishingbobber_ball", 2)})
-    set_ingredients("book_fish",                    {Ingredient("papyrus", 2), Ingredient(sw and "doydoyfeather" or "goose_feather", 2)})
+    set_ingredients("book_rain",                    {Ingredient("papyrus", 2), Ingredient(sw and "doydoyfeather" or "goose_feather", 2)})
     set_ingredients("book_moon",                    {Ingredient("papyrus", 2), Ingredient((sw and not env.GetModConfigData("starstuff_octopusking")) and "magic_seal" or "opalpreciousgem", 1), Ingredient("moonbutterflywings", 2)})
     -- Night Stories
     set_ingredients("book_wetness",                 {Ingredient("book_rain", 1), Ingredient("book_temperature", 1), Ingredient(sw and "magic_seal" or "malbatross_feather", sw and 1 or 10)})
 
+    if sw and env.GetModConfigData("craftable_atrium_loots") then
+        AddRecipe("armorskeleton", {Ingredient("magic_seal", 1), Ingredient("boneshard", 10), Ingredient("nightmarefuel", 6)}, TECH.LOST, {nounlock = true, nomods = true}, {"ARMOUR"})
+        AddRecipe("skeletonhat", {Ingredient("magic_seal", 1), Ingredient("boneshard", 10), Ingredient("nightmarefuel", 4)}, TECH.LOST, {nounlock = true, nomods = true}, {"ARMOUR"})
+        AddRecipe("thurible", {Ingredient("magic_seal", 1), Ingredient("cutstone", 2), Ingredient("nightmarefuel", 6), Ingredient("ash", 1)}, TECH.LOST, {nounlock = true, nomods = true}, {"TOOLS"})
+    end
 end)

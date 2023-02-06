@@ -10,13 +10,19 @@ local function zh_en(a, b)
     })
 end
 
-version = "1.11"
+version = "1.13.2"
 name = zh_en("岛屿冒险：豪华补充包", "Island Adventures: Deluxe Addon")
 author = "Civi, Tony, Jerry, Yulong"
 changelog = zh_en([[
-- 新配置：鱼农场不刷狗。
+- 黑曜石船兼容"刻舟"。
+
+- 修复一处崩溃。
+- 新道具【黑曜石船】：使用龙心作为燃料的奇怪的船。
 ]], [[
-- New config: Ban predators for fish farm.
+- Make Obsidian Boat compatible with "Name Boat".
+
+- Fix a crash on dedicated servers.
+- New Item "Obsidian Boat": consumes Dragoon Heart as fuel.
 ]])
 description = zh_en("版本: ", "Version: ") .. version ..
     zh_en("\n\n更新内容:\n", "\n\nChangelog:\n") .. changelog ..
@@ -87,6 +93,13 @@ configuration_options = {
         default = true
     },
     {
+        name = "moonglass_octopusking",
+        label = zh_en("满月时交易月亮碎片", "Moon Glass Trading"),
+        hover = zh_en("满月时可以与章鱼王交易换取月亮碎片而非金币", "Trade for Moon Glass with Octopus King during full moon instead of Dubloon"),
+        options = boolean,
+        default = true
+    },
+    {
         name = "wet_quacken",
         label = zh_en("海妖常驻潮湿", "Quacken always wet"),
         options = boolean,
@@ -129,6 +142,13 @@ configuration_options = {
     {
         name = "wx78_jellyfishbrain",
         label = zh_en("睿智帽可以制作机器人模块", "WX Modules in Brain of Thought"),
+        options = boolean,
+        default = true
+    },
+    {
+        name = "craftable_atrium_loots",
+        label = zh_en("睿智帽可以制作骨三件套", "Craftable Atrium Loots"),
+        hover = zh_en("远古织影者的战利品三件套可以在睿智帽里制作", "Loots from Ancient Fuelweaver can be crafted via Brain of Thought."),
         options = boolean,
         default = true
     },

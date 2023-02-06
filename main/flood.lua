@@ -7,12 +7,12 @@ if not AddNetworkProxy then
 end
 
 NO_PUDDLE_GROUNDS = {
-    [GROUND.WOODFLOOR] = true,
-    [GROUND.CARPET] = true,
-    [GROUND.CHECKER] = true,
-    [GROUND.SCALE] = true,
-    [GROUND.SNAKESKIN] = true,
-    [GROUND.ROAD] = true,
+    [WORLD_TILES.WOODFLOOR] = true,
+    [WORLD_TILES.CARPET] = true,
+    [WORLD_TILES.CHECKER] = true,
+    [WORLD_TILES.SCALE] = true,
+    [WORLD_TILES.SNAKESKIN] = true,
+    [WORLD_TILES.ROAD] = true,
 }
 
 -- :muted:
